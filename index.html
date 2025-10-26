@@ -226,9 +226,9 @@
             class="hero-title text-4xl sm:text-5xl lg:text-6xl font-black uppercase leading-tight mb-6 tracking-wider text-center sm:text-left"
           >
             <!-- Text for small screens -->
-            <span class="block md:hidden">
-              Get Your Players Noticed by College Coaches
-            </span>
+            <span class="block md:hidden"
+              >Get Your Players Noticed by College Coaches</span
+            >
 
             <!-- Image for medium+ screens -->
             <img
@@ -259,15 +259,17 @@
       </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- Stats Section with Background and Content Inside -->
     <section
-      class="stats-section relative pt-24 pb-24 z-20 px-4 sm:px-10"
-      style="
-        background-image: url('images/stats-bg.png');
-        background-size: cover;
-        background-position: center;
-      "
+      class="stats-section relative pt-32 sm:pt-36 pb-24 z-20 px-4 sm:px-10"
     >
+      <!-- Stats Background -->
+      <div
+        class="stats-bg absolute inset-0 -z-10 bg-cover bg-center"
+        style="background-image: url('images/stats-bg.png')"
+      ></div>
+
+      <!-- Stats Content -->
       <div
         class="stats-container relative z-20 max-w-[92rem] mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8"
       >
@@ -291,7 +293,7 @@
               225+
             </h3>
             <p
-              class="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed"
+              class="text-xs sm:text-sm md:text-base text-gray-800 leading-relaxed"
             >
               Academies and <br />Players Trust Us
             </p>
@@ -317,7 +319,7 @@
               UP TO 10
             </h3>
             <p
-              class="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed"
+              class="text-xs sm:text-sm md:text-base text-gray-800 leading-relaxed"
             >
               Business Days <br />Turnaround
             </p>
@@ -343,7 +345,7 @@
               100%
             </h3>
             <p
-              class="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed"
+              class="text-xs sm:text-sm md:text-base text-gray-800 leading-relaxed"
             >
               Dynamic QR Code <br />Technology
             </p>
@@ -369,7 +371,7 @@
               ZERO
             </h3>
             <p
-              class="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed"
+              class="text-xs sm:text-sm md:text-base text-gray-800 leading-relaxed"
             >
               Hassle Choosing <br />Information for the Club
             </p>
@@ -679,7 +681,7 @@
             </h3>
             <p class="text-xs sm:text-sm leading-relaxed text-white/85 m-0">
               Position your club as innovative and professional with materials
-              that stand out from basic team groups.
+              that stand out from basic team sheets.
             </p>
           </div>
 

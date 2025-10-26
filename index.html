@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soccer Recruiting Services</title>
+    <link rel="icon" type="image/x-icon" href="images/icon.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @font-face {
+        font-family: "Euclid Circular A Regular";
+        src: url("fonts/Euclid\ Circular\ A\ Regular.ttf") format("truetype");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Euclid Circular A Medium";
+        src: url("fonts/Euclid\ Circular\ A\ Medium.ttf") format("truetype");
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Euclid Circular A Bold";
+        src: url("fonts/Euclid\ Circular\ A\ Bold.ttf") format("truetype");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      body {
+        font-family: "Euclid Circular A Medium", system-ui, sans-serif;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .float-animation {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      @keyframes loading {
+        to {
+          background-position: -200% 0;
+        }
+      }
+
+      .skew-btn {
+        transform: skewX(-12deg);
+      }
+
+      .skew-btn span {
+        display: inline-block;
+        transform: skewX(12deg);
+      }
+
+      .nav-scrolled {
+        transform: translateY(-100%);
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-900 overflow-x-hidden">
+    <!-- Converted navbar to Tailwind classes -->
+    <nav
+      id="navbar"
+      class="navbar fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-black/10 transition-transform duration-300"
+    >
+      <div
+        class="nav-container max-w-[92rem] mx-auto px-6 lg:px-10 py-3 flex items-center justify-between"
+      >
+        <!-- Logo -->
+        <a href="#" class="logo">
+          <img
+            src="images/logo.png"
+            alt="Logo"
+            class="h-14 w-32 object-contain"
+          />
+        </a>
+
+        <!-- Desktop Links -->
+        <div class="nav-links hidden lg:flex items-center gap-5">
+          <a
+            href="#home"
+            class="nav-link text-sm font-medium text-black/75 hover:text-cyan-500 transition-colors"
+            >Home</a
+          >
+          <a
+            href="#problem"
+            class="nav-link text-sm font-medium text-black/75 hover:text-cyan-500 transition-colors"
+            >Problem</a
+          >
+          <a
+            href="#solution"
+            class="nav-link text-sm font-medium text-black/75 hover:text-cyan-500 transition-colors"
+            >Solution</a
+          >
+          <a
+            href="#why-srs"
+            class="nav-link text-sm font-medium text-black/75 hover:text-cyan-500 transition-colors"
+            >Why SRS</a
+          >
+          <a
+            href="#custom-designs"
+            class="nav-link text-sm font-medium text-black/75 hover:text-cyan-500 transition-colors"
+            >Custom Designs</a
+          >
+          <a
+            href="#pricing"
+            class="nav-link text-sm font-medium text-black/75 hover:text-cyan-500 transition-colors"
+            >Pricing</a
+          >
+          <a
+            href="#faq"
+            class="nav-link text-sm font-medium text-black/75 hover:text-cyan-500 transition-colors"
+            >FAQs</a
+          >
+        </div>
+
+        <!-- Right Side -->
+        <div class="nav-right flex items-center gap-3">
+          <!-- CTA Button -->
+          <button
+            class="cta-btn hidden md:block bg-cyan-500 text-white font-normal uppercase tracking-wider px-6 py-2 border-none cursor-pointer skew-btn hover:bg-cyan-600 hover:-translate-y-[3px] transition-all whitespace-nowrap"
+          >
+            <span>Schedule a Consultation</span>
+          </button>
+
+          <!-- Mobile Menu Button -->
+          <button
+            id="menu-btn"
+            class="block lg:hidden text-3xl text-gray-900 hover:text-cyan-500 transition-colors duration-300"
+            aria-label="Open Menu"
+          >
+            ☰
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="fixed top-0 right-[-100%] h-screen w-80 bg-white shadow-lg transition-all duration-300 z-[9999] flex flex-col"
+      >
+        <div
+          class="menu-header flex justify-between items-center p-5 border-b border-black/10"
+        >
+          <strong class="text-black text-lg">Menu</strong>
+          <button id="close-btn" class="text-3xl text-gray-700 cursor-pointer">
+            ×
+          </button>
+        </div>
+
+        <div class="menu-content flex flex-col p-6 gap-4">
+          <a
+            href="#home"
+            class="mobile-link text-black/80 text-base font-medium hover:text-cyan-500 transition-colors"
+            >Home</a
+          >
+          <a
+            href="#problem"
+            class="mobile-link text-black/80 text-base font-medium hover:text-cyan-500 transition-colors"
+            >Problem</a
+          >
+          <a
+            href="#solution"
+            class="mobile-link text-black/80 text-base font-medium hover:text-cyan-500 transition-colors"
+            >Solution</a
+          >
+          <a
+            href="#why-srs"
+            class="mobile-link text-black/80 text-base font-medium hover:text-cyan-500 transition-colors"
+            >Why SRS</a
+          >
+          <a
+            href="#custom-designs"
+            class="mobile-link text-black/80 text-base font-medium hover:text-cyan-500 transition-colors"
+            >Custom Designs</a
+          >
+          <a
+            href="#pricing"
+            class="mobile-link text-black/80 text-base font-medium hover:text-cyan-500 transition-colors"
+            >Pricing</a
+          >
+          <a
+            href="#faq"
+            class="mobile-link text-black/80 text-base font-medium hover:text-cyan-500 transition-colors"
+            >FAQs</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Converted hero section to Tailwind -->
+    <section
+      id="home"
+      class="hero-wrapper relative bg-cover bg-center bg-no-repeat text-white pt-20 sm:pt-24 lg:pt-28 pb-16 z-10"
+      style="background-image: url('images/hero-bg.jpg')"
+    >
+      <div
+        class="hero flex flex-col lg:flex-row items-center justify-between min-h-[80vh] px-4 sm:px-10 lg:px-10 max-w-[92rem] mx-auto gap-8 relative z-20"
+      >
+        <!-- Left Content -->
+        <div
+          class="hero-content max-w-2xl z-30 text-center sm:text-left lg:text-left"
+        >
+          <div
+            class="hero-label text-cyan-400 italic font-bold tracking-widest uppercase text-base sm:text-lg mb-4"
+          >
+            Digital Recruiting
+          </div>
+          <h1
+            class="hero-title text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-tight mb-6 tracking-wider"
+          >
+            <img
+              src="images/hero-text.png"
+              alt="hero-text"
+              class="mx-auto lg:mx-0 w-full max-w-[500px] sm:max-w-[550px] h-auto"
+            />
+          </h1>
+          <p
+            class="hero-description text-lg sm:text-xl italic text-white/90 leading-relaxed mb-4"
+          >
+            Professional Digital Recruiting Packages That Make Your Club Stand
+            Out.
+          </p>
+          <p
+            class="hero-subtext text-base sm:text-lg text-white/90 leading-relaxed mb-6 sm:mb-8"
+          >
+            From showcase brochures to dynamic player cards — we make it easy
+            for coaches to discover your talent.
+          </p>
+          <button
+            class="cta-btn bg-cyan-500 text-white font-normal uppercase tracking-wider px-6 sm:px-8 py-2.5 border-none cursor-pointer skew-btn hover:bg-cyan-600 hover:-translate-y-[3px] transition-all text-sm sm:text-base"
+          >
+            Get Your Free 15-Mins Consultation
+          </button>
+        </div>
+
+        <!-- Optional Right Image -->
+        <!-- <div class="hero-image mt-8 lg:mt-0">
+      <img src="images/player.png" alt="Hero Player" class="w-full max-w-md h-auto object-contain" />
+    </div> -->
+      </div>
+
+      <!-- Stats Section -->
+      <div
+        class="stats-section mt-20 sm:mt-28 text-white bg-transparent relative z-20"
+      >
+        <div
+          class="stats-container max-w-[92rem] mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 px-4 sm:px-10"
+        >
+          <div
+            class="stat-card flex items-start gap-3 sm:gap-5 hover:-translate-y-1.5 transition-transform"
+          >
+            <div
+              class="stat-icon w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center flex-shrink-0 rounded-full"
+            >
+              <img
+                src="images/225.png"
+                alt="225"
+                class="max-w-full max-h-full object-contain"
+              />
+            </div>
+            <div class="stat-content">
+              <h3
+                class="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-1"
+              >
+                225+
+              </h3>
+              <p
+                class="text-xs sm:text-sm md:text-base text-gray-800 leading-relaxed"
+              >
+                Academies and <br />Players Trust Us
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="stat-card flex items-start gap-3 sm:gap-5 hover:-translate-y-1.5 transition-transform"
+          >
+            <div
+              class="stat-icon w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center flex-shrink-0 rounded-full"
+            >
+              <img
+                src="images/10.png"
+                alt="10"
+                class="max-w-full max-h-full object-contain"
+              />
+            </div>
+            <div class="stat-content">
+              <h3
+                class="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-1"
+              >
+                UP TO 10
+              </h3>
+              <p
+                class="text-xs sm:text-sm md:text-base text-gray-800 leading-relaxed"
+              >
+                Business Days <br />Turnaround
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="stat-card flex items-start gap-3 sm:gap-5 hover:-translate-y-1.5 transition-transform"
+          >
+            <div
+              class="stat-icon w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center flex-shrink-0 rounded-full"
+            >
+              <img
+                src="images/100%.png"
+                alt="100%"
+                class="max-w-full max-h-full object-contain"
+              />
+            </div>
+            <div class="stat-content">
+              <h3
+                class="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-1"
+              >
+                100%
+              </h3>
+              <p
+                class="text-xs sm:text-sm md:text-base text-gray-800 leading-relaxed"
+              >
+                Dynamic QR Code <br />Technology
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="stat-card flex items-start gap-3 sm:gap-5 hover:-translate-y-1.5 transition-transform"
+          >
+            <div
+              class="stat-icon w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center flex-shrink-0 rounded-full"
+            >
+              <img
+                src="images/zero.png"
+                alt="zero"
+                class="max-w-full max-h-full object-contain"
+              />
+            </div>
+            <div class="stat-content">
+              <h3
+                class="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-1"
+              >
+                ZERO
+              </h3>
+              <p
+                class="text-xs sm:text-sm md:text-base text-gray-800 leading-relaxed"
+              >
+                Hassle Choosing <br />Information for the Club
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Converted problem section to Tailwind -->
+    <section
+      class="problem-section relative py-28 md:py-32 bg-white overflow-hidden"
+      id="problem"
+    >
+      <div
+        class="problem-container flex flex-col-reverse md:flex-row items-center justify-between gap-16 max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-16"
+      >
+        <!-- Left Image -->
+        <div
+          class="problem-image flex-1 flex justify-center md:justify-start w-full"
+        >
+          <img
+            src="images/problem-img.png"
+            alt="Problem Image"
+            class="w-full max-w-sm sm:max-w-md md:max-w-xl lg:max-w-2xl rounded-3xl shadow-xl object-cover"
+          />
+        </div>
+
+        <!-- Right Content -->
+        <div class="problem-content flex-1 w-full text-center md:text-left">
+          <p
+            class="problem-subtitle text-red-500 italic font-bold tracking-[6px] uppercase text-xs sm:text-sm mb-3"
+          >
+            The Problem
+          </p>
+          <h2
+            class="problem-title text-black text-3xl sm:text-4xl lg:text-[2.6rem] leading-snug sm:leading-relaxed font-black mb-8"
+          >
+            Brand Challenges Facing<br class="hidden sm:block" />
+            The Club Industry
+          </h2>
+
+          <ul class="problem-list list-none p-0 m-0 space-y-5 sm:space-y-6">
+            <li
+              class="flex items-start gap-3 sm:gap-4 text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed"
+            >
+              <img
+                src="images/cross.png"
+                alt="cross"
+                class="w-4 h-4 mt-1.5 flex-shrink-0 hover:scale-125 hover:-rotate-3 transition-transform"
+              />
+              Players get lost in the crowd at showcases.
+            </li>
+            <li
+              class="flex items-start gap-3 sm:gap-4 text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed"
+            >
+              <img
+                src="images/cross.png"
+                alt="cross"
+                class="w-4 h-4 mt-1.5 flex-shrink-0 hover:scale-125 hover:-rotate-3 transition-transform"
+              />
+              Coaches waste time trying to identify & research players.
+            </li>
+            <li
+              class="flex items-start gap-3 sm:gap-4 text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed"
+            >
+              <img
+                src="images/cross.png"
+                alt="cross"
+                class="w-4 h-4 mt-1.5 flex-shrink-0 hover:scale-125 hover:-rotate-3 transition-transform"
+              />
+              Clubs lack professional marketing materials that reflect their
+              quality.
+            </li>
+            <li
+              class="flex items-start gap-3 sm:gap-4 text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed"
+            >
+              <img
+                src="images/cross.png"
+                alt="cross"
+                class="w-4 h-4 mt-1.5 flex-shrink-0 hover:scale-125 hover:-rotate-3 transition-transform"
+              />
+              Static player information becomes outdated quickly.
+            </li>
+            <li
+              class="flex items-start gap-3 sm:gap-4 text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed"
+            >
+              <img
+                src="images/cross.png"
+                alt="cross"
+                class="w-4 h-4 mt-1.5 flex-shrink-0 hover:scale-125 hover:-rotate-3 transition-transform"
+              />
+              No efficient way to connect coaches directly to player highlight
+              reels.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Converted solution section to Tailwind -->
+    <section
+      class="solution-section relative py-28 md:py-32 bg-white overflow-hidden"
+      id="solution"
+    >
+      <div
+        class="solution-container flex flex-col md:flex-row items-center justify-between gap-16 max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-16"
+      >
+        <!-- Left Content -->
+        <div class="solution-content flex-1 w-full text-center md:text-left">
+          <p
+            class="solution-subtitle text-cyan-600 italic font-bold tracking-[6px] uppercase text-xs sm:text-sm mb-3"
+          >
+            The Solution
+          </p>
+
+          <h2
+            class="solution-title text-black text-3xl sm:text-4xl lg:text-[2.6rem] leading-snug sm:leading-relaxed font-black mb-10"
+          >
+            Professional Digital <br class="hidden sm:block" />
+            Recruiting Package
+          </h2>
+
+          <ul class="solution-list list-none flex flex-col gap-6">
+            <li
+              class="flex items-start gap-4 pb-6 border-b border-gray-300 hover:translate-x-1 transition-transform"
+            >
+              <div
+                class="icon-circle w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 flex justify-center items-center"
+              >
+                <img
+                  src="images/s-1.png"
+                  alt="icon"
+                  class="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                />
+              </div>
+              <div>
+                <h4
+                  class="text-gray-900 text-left text-base sm:text-lg font-bold mb-1"
+                >
+                  Professional Team Showcase Brochure
+                </h4>
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                  Beautiful layout with all player headshots, info, and QR
+                  codes.
+                </p>
+              </div>
+            </li>
+
+            <li
+              class="flex items-start gap-4 pb-6 border-b border-gray-300 hover:translate-x-1 transition-transform"
+            >
+              <div
+                class="icon-circle w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 flex justify-center items-center"
+              >
+                <img
+                  src="images/s-2.png"
+                  alt="icon"
+                  class="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                />
+              </div>
+              <div>
+                <h4
+                  class="text-gray-900 text-left text-base sm:text-lg font-bold mb-1"
+                >
+                  Individual Player Cards
+                </h4>
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                  Perfect for handing out or sharing digitally.
+                </p>
+              </div>
+            </li>
+
+            <li
+              class="flex items-start gap-4 pb-6 border-b border-gray-300 hover:translate-x-1 transition-transform"
+            >
+              <div
+                class="icon-circle w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 flex justify-center items-center"
+              >
+                <img
+                  src="images/s-3.png"
+                  alt="icon"
+                  class="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                />
+              </div>
+              <div>
+                <h4
+                  class="text-gray-900 text-left text-base sm:text-lg font-bold mb-1"
+                >
+                  Dynamic QR Code Technology
+                </h4>
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                  Links to player's current highlight reel and bio.
+                </p>
+              </div>
+            </li>
+
+            <li
+              class="flex items-start gap-4 pb-6 border-b border-gray-300 hover:translate-x-1 transition-transform"
+            >
+              <div
+                class="icon-circle w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 flex justify-center items-center"
+              >
+                <img
+                  src="images/s-4.png"
+                  alt="icon"
+                  class="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                />
+              </div>
+              <div>
+                <h4
+                  class="text-gray-900 text-left text-base sm:text-lg font-bold mb-1"
+                >
+                  Streamlined Data Collection
+                </h4>
+                <p
+                  class="text-gray-600 text-left text-sm sm:text-base leading-relaxed"
+                >
+                  We handle the logistics with our Google Suite system process.
+                </p>
+              </div>
+            </li>
+
+            <li
+              class="flex items-start gap-4 pb-0 hover:translate-x-1 transition-transform"
+            >
+              <div
+                class="icon-circle w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 flex justify-center items-center"
+              >
+                <img
+                  src="images/s-5.png"
+                  alt="icon"
+                  class="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                />
+              </div>
+              <div>
+                <h4
+                  class="text-gray-900 text-left text-base sm:text-lg font-bold mb-1"
+                >
+                  Quick Turnaround
+                </h4>
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                  As quick as 10 business days from final, approved data.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right Image -->
+        <div
+          class="solution-image flex-1 flex justify-center md:justify-end w-full"
+        >
+          <img
+            src="images/solution-img.png"
+            alt="Player Cards"
+            class="w-full max-w-sm sm:max-w-md md:max-w-xl lg:max-w-2xl h-auto object-contain"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Converted why clubs section to Tailwind -->
+    <section
+      class="why-clubs-section relative py-20 md:py-28 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white bg-cover bg-center bg-no-repeat"
+      id="why-srs"
+      style="background-image: url('images/why-choose-us.png')"
+    >
+      <div
+        class="why-clubs-container max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-16"
+      >
+        <!-- Header -->
+        <div class="why-clubs-header text-center mb-12 md:mb-16">
+          <p
+            class="why-clubs-subtitle text-xs sm:text-sm italic tracking-[0.25em] uppercase text-cyan-400 font-bold mb-3"
+          >
+            WHY CLUBS CHOOSE US
+          </p>
+          <h2
+            class="why-clubs-title text-3xl sm:text-4xl md:text-5xl lg:text-[3rem] font-black leading-snug md:leading-tight uppercase tracking-wide"
+          >
+            WHY TOP CLUBS CHOOSE OUR<br class="hidden sm:block" />
+            RECRUITING PACKAGE
+          </h2>
+        </div>
+
+        <!-- Grid -->
+        <div
+          class="why-clubs-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+        >
+          <!-- Card 1 -->
+          <div
+            class="why-clubs-card bg-[#14325099] backdrop-blur-lg border border-cyan-500/20 p-6 sm:p-8 lg:p-10 text-center hover:bg-[#143250] hover:border-cyan-500/50 hover:-translate-y-2 hover:shadow-lg transition-all flex flex-col items-center"
+          >
+            <div
+              class="why-clubs-icon w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-5 sm:mb-6"
+            >
+              <img
+                src="images/w-1.png"
+                alt="Tech-Forward"
+                class="max-w-full max-h-full object-contain"
+              />
+            </div>
+            <h3
+              class="text-sm sm:text-base font-bold leading-relaxed mb-3 sm:mb-4 uppercase tracking-wide"
+            >
+              TECH-FORWARD<br />BRAND IMAGE
+            </h3>
+            <p class="text-xs sm:text-sm leading-relaxed text-white/85 m-0">
+              Position your club as innovative and professional with materials
+              that stand out from basic team groups.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="why-clubs-card bg-[#14325099] backdrop-blur-lg border border-cyan-500/20 p-6 sm:p-8 lg:p-10 text-center hover:bg-[#143250] hover:border-cyan-500/50 hover:-translate-y-2 hover:shadow-lg transition-all flex flex-col items-center"
+          >
+            <div
+              class="why-clubs-icon w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-5 sm:mb-6"
+            >
+              <img
+                src="images/w-2.png"
+                alt="Always Current"
+                class="max-w-full max-h-full object-contain"
+              />
+            </div>
+            <h3
+              class="text-sm sm:text-base font-bold leading-relaxed mb-3 sm:mb-4 uppercase tracking-wide"
+            >
+              ALWAYS CURRENT<br />INFORMATION
+            </h3>
+            <p class="text-xs sm:text-sm leading-relaxed text-white/85 m-0">
+              Dynamic QR codes automatically link to players' most recent
+              highlight reels & stats.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="why-clubs-card bg-[#14325099] backdrop-blur-lg border border-cyan-500/20 p-6 sm:p-8 lg:p-10 text-center hover:bg-[#143250] hover:border-cyan-500/50 hover:-translate-y-2 hover:shadow-lg transition-all flex flex-col items-center"
+          >
+            <div
+              class="why-clubs-icon w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-5 sm:mb-6"
+            >
+              <img
+                src="images/w-3.png"
+                alt="Coaches Love"
+                class="max-w-full max-h-full object-contain"
+              />
+            </div>
+            <h3
+              class="text-sm sm:text-base font-bold leading-relaxed mb-3 sm:mb-4 uppercase tracking-wide"
+            >
+              COACHES LOVE THE<br />EFFICIENCY
+            </h3>
+            <p class="text-xs sm:text-sm leading-relaxed text-white/85 m-0">
+              Instant player identification with professional headshots &
+              immediate access to highlight reels.
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="why-clubs-card bg-[#14325099] backdrop-blur-lg border border-cyan-500/20 p-6 sm:p-8 lg:p-10 text-center hover:bg-[#143250] hover:border-cyan-500/50 hover:-translate-y-2 hover:shadow-lg transition-all flex flex-col items-center"
+          >
+            <div
+              class="why-clubs-icon w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-5 sm:mb-6"
+            >
+              <img
+                src="images/w-4.png"
+                alt="Player Visibility"
+                class="max-w-full max-h-full object-contain"
+              />
+            </div>
+            <h3
+              class="text-sm sm:text-base font-bold leading-relaxed mb-3 sm:mb-4 uppercase tracking-wide"
+            >
+              MAXIMUM PLAYER<br />VISIBILITY
+            </h3>
+            <p class="text-xs sm:text-sm leading-relaxed text-white/85 m-0">
+              Every player gets professional representation with individual
+              cards & showcase brochure inclusion.
+            </p>
+          </div>
+
+          <!-- Card 5 -->
+          <div
+            class="why-clubs-card bg-[#14325099] backdrop-blur-lg border border-cyan-500/20 p-6 sm:p-8 lg:p-10 text-center hover:bg-[#143250] hover:border-cyan-500/50 hover:-translate-y-2 hover:shadow-lg transition-all flex flex-col items-center"
+          >
+            <div
+              class="why-clubs-icon w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-5 sm:mb-6"
+            >
+              <img
+                src="images/w-5.png"
+                alt="Streamlined Process"
+                class="max-w-full max-h-full object-contain"
+              />
+            </div>
+            <h3
+              class="text-sm sm:text-base font-bold leading-relaxed mb-3 sm:mb-4 uppercase tracking-wide"
+            >
+              STREAMLINED<br />PROCESS
+            </h3>
+            <p class="text-xs sm:text-sm leading-relaxed text-white/85 m-0">
+              We handle data collection, photography, design, & production -
+              developing players.
+            </p>
+          </div>
+
+          <!-- Card 6 -->
+          <div
+            class="why-clubs-card bg-[#14325099] backdrop-blur-lg border border-cyan-500/20 p-6 sm:p-8 lg:p-10 text-center hover:bg-[#143250] hover:border-cyan-500/50 hover:-translate-y-2 hover:shadow-lg transition-all flex flex-col items-center"
+          >
+            <div
+              class="why-clubs-icon w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-5 sm:mb-6"
+            >
+              <img
+                src="images/w-6.png"
+                alt="Proven Results"
+                class="max-w-full max-h-full object-contain"
+              />
+            </div>
+
+            <h3
+              class="text-sm sm:text-base font-bold leading-relaxed mb-3 sm:mb-4 uppercase tracking-wide"
+            >
+              PROVEN<br />RESULTS
+            </h3>
+            <p class="text-xs sm:text-sm leading-relaxed text-white/85 m-0">
+              Consistently positive feedback from coaches & enhanced recruitment
+              success for our partner clubs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Converted custom designs carousel section to Tailwind -->
+    <section
+      class="custom-designs-section py-20 md:py-28 bg-gray-50"
+      id="custom-designs"
+    >
+      <div
+        class="custom-designs-container max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-16"
+      >
+        <!-- Header -->
+        <div class="custom-designs-header text-center mb-12 md:mb-16">
+          <p
+            class="custom-designs-subtitle text-xs sm:text-sm italic tracking-[0.25em] uppercase text-cyan-400 font-bold mb-3"
+          >
+            CUSTOM DESIGNS
+          </p>
+          <h2
+            class="custom-designs-title text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-wide text-black leading-snug md:leading-tight"
+          >
+            CUSTOM DESIGNS FOR EVERY CLUB
+          </h2>
+        </div>
+
+        <!-- Carousel -->
+        <div
+          class="carousel-wrapper relative flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 mb-12"
+        >
+          <!-- Prev Button -->
+          <button
+            class="carousel-btn carousel-btn-prev w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-cyan-400 border-none text-white text-xl sm:text-2xl cursor-pointer flex items-center justify-center hover:bg-cyan-600 hover:scale-110 hover:shadow-lg active:scale-95 transition-all font-bold order-2 sm:order-1"
+            id="prevBtn"
+          >
+            &lt;
+          </button>
+
+          <!-- Carousel Container -->
+          <div
+            class="carousel-container w-full sm:flex-1 max-w-md sm:max-w-4xl overflow-hidden rounded-xl sm:rounded-2xl order-1 sm:order-2"
+          >
+            <div
+              class="carousel-track flex gap-4 sm:gap-5 transition-transform duration-500"
+            >
+              <!-- Slide -->
+              <div
+                class="carousel-slide flex-shrink-0 w-full sm:w-1/2 rounded-xl overflow-hidden"
+              >
+                <img
+                  src="images/cd-1.png"
+                  alt="Custom Design 1"
+                  class="w-full h-auto object-cover"
+                />
+              </div>
+              <div
+                class="carousel-slide flex-shrink-0 w-full sm:w-1/2 rounded-xl overflow-hidden"
+              >
+                <img
+                  src="images/cd-2.png"
+                  alt="Custom Design 2"
+                  class="w-full h-auto object-cover"
+                />
+              </div>
+              <div
+                class="carousel-slide flex-shrink-0 w-full sm:w-1/2 rounded-xl overflow-hidden"
+              >
+                <img
+                  src="images/cd-1.png"
+                  alt="Custom Design 1"
+                  class="w-full h-auto object-cover"
+                />
+              </div>
+              <div
+                class="carousel-slide flex-shrink-0 w-full sm:w-1/2 rounded-xl overflow-hidden"
+              >
+                <img
+                  src="images/cd-2.png"
+                  alt="Custom Design 2"
+                  class="w-full h-auto object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Next Button -->
+          <button
+            class="carousel-btn carousel-btn-next w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-cyan-400 border-none text-white text-xl sm:text-2xl cursor-pointer flex items-center justify-center hover:bg-cyan-600 hover:scale-110 hover:shadow-lg active:scale-95 transition-all font-bold order-3"
+            id="nextBtn"
+          >
+            &gt;
+          </button>
+        </div>
+
+        <!-- Indicators -->
+        <div class="carousel-indicators flex justify-center gap-2 sm:gap-3">
+          <span
+            class="indicator w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-gray-300 cursor-pointer hover:bg-cyan-300 transition-all active"
+            data-index="0"
+          ></span>
+          <span
+            class="indicator w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-gray-300 cursor-pointer hover:bg-cyan-300 transition-all"
+            data-index="1"
+          ></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Converted pricing section to Tailwind -->
+    <section
+      class="pricing-section relative bg-cover bg-center py-32 px-6 md:px-20 lg:px-40 text-white overflow-hidden"
+      style="background-image: url('images/pricing-bg.png')"
+      id="pricing"
+    >
+      <div
+        class="pricing-container relative z-10 max-w-6xl mx-auto text-center"
+      >
+        <!-- Header -->
+        <div class="pricing-header mb-20 pb-12">
+          <p
+            class="text-sm italic tracking-widest text-cyan-400 uppercase mb-4 font-semibold"
+          >
+            OUR PRICING
+          </p>
+          <h2 class="text-4xl md:text-5xl font-bold text-black tracking-wider">
+            OUR PACKAGES & PRICING
+          </h2>
+        </div>
+
+        <!-- Pricing Wrapper -->
+        <div
+          class="pricing-wrapper flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-0 mt-10 relative"
+        >
+          <!-- Basic Package -->
+          <div
+            class="pricing-card bg-white text-left text-black rounded-xl shadow-lg hover:-translate-y-3 hover:scale-105 transition-all duration-300 w-full sm:w-96 p-10 md:p-14 z-10 order-1 lg:order-1"
+          >
+            <div class="text-5xl mb-5 text-blue-900">
+              <img src="images/star.png" alt="Star" class="w-12 h-12" />
+            </div>
+            <h3
+              class="text-2xl font-bold uppercase tracking-wider mb-4 text-blue-900"
+            >
+              BASIC PACKAGE
+            </h3>
+            <div class="border-b-2 border-gray-200 mb-6 pb-6">
+              <span class="block text-5xl font-black text-cyan-400 mb-2"
+                >$750</span
+              >
+              <span class="text-sm text-gray-600 font-medium"
+                >Per Team (Up to 18 Players)</span
+              >
+            </div>
+            <ul class="list-none p-0 m-0 mb-9 flex-grow">
+              <li class="text-base text-gray-700 mb-3 flex items-center gap-2">
+                <span class="text-cyan-400 font-bold">✓</span> Club provides
+                player headshots.
+              </li>
+              <li class="text-base text-gray-700 mb-3 flex items-center gap-2">
+                <span class="text-cyan-400 font-bold">✓</span> Professional
+                brochure design.
+              </li>
+              <li class="text-base text-gray-700 mb-3 flex items-center gap-2">
+                <span class="text-cyan-400 font-bold">✓</span> Final digital
+                file delivery.
+              </li>
+              <li class="text-base text-gray-700 mb-3 flex items-center gap-2">
+                <span class="text-cyan-400 font-bold">✓</span> Individual player
+                cards.
+              </li>
+              <li class="text-base text-gray-700 mb-3 flex items-center gap-2">
+                <span class="text-cyan-400 font-bold">✓</span> Consistent,
+                professional look across all materials.
+              </li>
+            </ul>
+            <button
+              class="cta-btn bg-cyan-500 text-white font-normal uppercase tracking-wider px-6 py-2 border-none cursor-pointer skew-btn hover:bg-cyan-600 hover:-translate-y-[3px] transition-all"
+            >
+              <span>Get Each Additional Player</span>
+            </button>
+          </div>
+
+          <!-- Featured Package (Center) -->
+          <div
+            class="pricing-card bg-gradient-to-br from-blue-900 to-blue-800 text-white rounded-xl shadow-2xl transform lg:scale-110 hover:scale-115 transition-all duration-300 p-12 md:p-16 relative z-20 order-3 lg:order-2"
+          >
+            <div
+              class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-cyan-400 text-white px-6 py-2 text-xs font-bold tracking-widest uppercase shadow-lg rounded-full"
+            >
+              MOST POPULAR
+            </div>
+            <div class="text-5xl mb-5 text-cyan-400">
+              <img src="images/diamond.png" alt="Diamond" class="w-16 h-16" />
+            </div>
+            <h3
+              class="text-2xl font-bold uppercase tracking-wider mb-4 text-white"
+            >
+              COMPLETE PACKAGE
+            </h3>
+            <div class="border-b-2 border-cyan-500/30 mb-6 pb-6">
+              <span class="block text-5xl font-black text-cyan-400 mb-2"
+                >$1,250</span
+              >
+              <span class="text-sm text-white/75 font-medium"
+                >Per Team (Up to 18 Players)</span
+              >
+            </div>
+            <ul class="list-none p-0 m-0 mb-9 flex-grow">
+              <li class="text-base text-white/85 mb-3 flex items-center gap-2">
+                <span class="text-cyan-400 font-bold">✓</span> Professional
+                headshot photography.
+              </li>
+              <li class="text-base text-white/85 mb-3 flex items-center gap-2">
+                <span class="text-cyan-400 font-bold">✓</span> Professional
+                brochure design.
+              </li>
+              <li class="text-base text-white/85 mb-3 flex items-center gap-2">
+                <span class="text-cyan-400 font-bold">✓</span> Final digital
+                file delivery.
+              </li>
+              <li class="text-base text-white/85 mb-3 flex items-center gap-2">
+                <span class="text-cyan-400 font-bold">✓</span> Individual player
+                cards.
+              </li>
+              <li class="text-base text-white/85 mb-3 flex items-center gap-2">
+                <span class="text-cyan-400 font-bold">✓</span> Dynamic QR code
+                management.
+              </li>
+              <li class="text-base text-white/85 mb-3 flex items-center gap-2">
+                <span class="text-cyan-400 font-bold">✓</span> Consistent,
+                professional look across all materials.
+              </li>
+            </ul>
+            <button
+              class="cta-btn bg-cyan-500 text-white font-normal uppercase tracking-wider px-6 py-2 border-none cursor-pointer skew-btn hover:bg-cyan-600 hover:-translate-y-[3px] transition-all"
+            >
+              <span>Get Each Additional Player</span>
+            </button>
+          </div>
+
+          <!-- Player Image (Right Side) -->
+          <div
+            class="pricing-image-wrapper flex justify-center lg:justify-end mt-10 lg:mt-0 order-2 lg:order-3"
+          >
+            <img
+              src="images/football-player.png"
+              alt="Professional Soccer Player"
+              class="w-64 sm:w-80 md:w-96 h-auto object-contain drop-shadow-2xl"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Converted FAQ section to Tailwind -->
+    <section class="faq-section py-20 bg-white" id="faq">
+      <div class="max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-16">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <p
+            class="text-sm sm:text-base italic tracking-widest uppercase text-cyan-400 font-bold mb-3"
+          >
+            ASKED QUESTIONS BY PEOPLE
+          </p>
+          <h2
+            class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-snug uppercase tracking-wide text-black"
+          >
+            FREQUENTLY ASKED QUESTIONS
+          </h2>
+        </div>
+
+        <!-- FAQ Items -->
+        <div class="flex flex-col gap-6">
+          <!-- FAQ Item -->
+          <div
+            class="faq-item border border-gray-200 rounded-[50px] overflow-hidden transition-all duration-300"
+          >
+            <div
+              class="faq-question flex items-center justify-between p-6 cursor-pointer bg-white hover:bg-gray-50 transition-all duration-300"
+            >
+              <h3
+                class="faq-title text-lg sm:text-xl font-bold text-black flex-1 text-left"
+              >
+                What If Players Don't Have Highlight Reels Yet?
+              </h3>
+              <button
+                class="faq-toggle w-12 h-12 ml-5 rounded-full flex items-center justify-center text-2xl font-bold transition-all duration-300 bg-cyan-900 text-white"
+              >
+                +
+              </button>
+            </div>
+            <div
+              class="faq-answer border-t border-gray-200 max-h-0 overflow-hidden transition-all duration-300 bg-white rounded-b-[50px]"
+            >
+              <div class="pt-4 pb-6 px-6">
+                <p class="text-gray-600 text-base leading-relaxed">
+                  Our dynamic QR codes can link to any platform — NCSA profiles,
+                  YouTube channels, or even future content. Players can update
+                  their links anytime.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item -->
+          <div
+            class="faq-item border border-gray-200 rounded-[50px] overflow-hidden transition-all duration-300"
+          >
+            <div
+              class="faq-question flex items-center justify-between p-6 cursor-pointer bg-white hover:bg-gray-50 transition-all duration-300"
+            >
+              <h3
+                class="faq-title text-lg sm:text-xl font-bold text-black flex-1 text-left"
+              >
+                Can We Make Changes After Materials Are Printed?
+              </h3>
+              <button
+                class="faq-toggle w-12 h-12 ml-5 rounded-full flex items-center justify-center text-2xl font-bold transition-all duration-300 bg-cyan-900 text-white"
+              >
+                +
+              </button>
+            </div>
+            <div
+              class="faq-answer border-t border-gray-200 max-h-0 overflow-hidden transition-all duration-300 bg-white rounded-b-[50px]"
+            >
+              <div class="pt-4 pb-6 px-6">
+                <p class="text-gray-600 text-base leading-relaxed">
+                  Yes! Our dynamic QR code technology allows you to update the
+                  linked content anytime without reprinting materials.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item -->
+          <div
+            class="faq-item border border-gray-200 rounded-[50px] overflow-hidden transition-all duration-300"
+          >
+            <div
+              class="faq-question flex items-center justify-between p-6 cursor-pointer bg-white hover:bg-gray-50 transition-all duration-300"
+            >
+              <h3
+                class="faq-title text-lg sm:text-xl font-bold text-black flex-1 text-left"
+              >
+                What If We Have Players In Different Age Groups?
+              </h3>
+              <button
+                class="faq-toggle w-12 h-12 ml-5 rounded-full flex items-center justify-center text-2xl font-bold transition-all duration-300 bg-cyan-900 text-white"
+              >
+                +
+              </button>
+            </div>
+            <div
+              class="faq-answer border-t border-gray-200 max-h-0 overflow-hidden transition-all duration-300 bg-white rounded-b-[50px]"
+            >
+              <div class="pt-4 pb-6 px-6">
+                <p class="text-gray-600 text-base leading-relaxed">
+                  We can create customized materials for different age groups
+                  and teams, tailored to their needs and branding.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item -->
+          <div
+            class="faq-item border border-gray-200 rounded-[50px] overflow-hidden transition-all duration-300"
+          >
+            <div
+              class="faq-question flex items-center justify-between p-6 cursor-pointer bg-white hover:bg-gray-50 transition-all duration-300"
+            >
+              <h3
+                class="faq-title text-lg sm:text-xl font-bold text-black flex-1 text-left"
+              >
+                Do You Travel Outside South And Central Florida?
+              </h3>
+              <button
+                class="faq-toggle w-12 h-12 ml-5 rounded-full flex items-center justify-center text-2xl font-bold transition-all duration-300 bg-cyan-900 text-white"
+              >
+                +
+              </button>
+            </div>
+            <div
+              class="faq-answer border-t border-gray-200 max-h-0 overflow-hidden transition-all duration-300 bg-white rounded-b-[50px]"
+            >
+              <div class="pt-4 pb-6 px-6">
+                <p class="text-gray-600 text-base leading-relaxed">
+                  Yes, we work with clubs across the country and
+                  internationally. Our services are available nationwide.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Converted consultation and footer section to Tailwind -->
+    <section
+      class="consultation-footer-wrapper bg-cover bg-center bg-no-repeat"
+      style="background-image: url('images/footer-bg.png')"
+    >
+      <!-- Consultation Section -->
+      <div
+        class="consultation max-w-6xl mx-auto mb-24 grid grid-cols-1 md:grid-cols-2 gap-10 items-center py-16 px-6 sm:px-10"
+      >
+        <!-- Left Content -->
+        <div class="consultation-content text-center md:text-left">
+          <h2
+            class="text-blue-900 italic font-bold tracking-widest uppercase text-xs md:text-sm mb-2"
+          >
+            Elevate Recruiting
+          </h2>
+          <h1
+            class="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 leading-tight text-white"
+          >
+            Ready to Elevate Your Club&apos;s Recruiting Game?
+          </h1>
+          <p class="text-sm sm:text-base text-white/90 mb-8">
+            Join the elite academies using professional digital recruiting
+            packages to get their players noticed.
+          </p>
+          <button
+            class="cta-button bg-blue-900 text-white font-normal uppercase tracking-wider px-5 sm:px-6 py-3 border-none cursor-pointer skew-btn hover:bg-blue-800 hover:-translate-y-[3px] transition-all text-sm sm:text-base"
+          >
+            Get Your Free 15 Mins Consultation
+          </button>
+        </div>
+
+        <!-- Right Image -->
+        <div class="consultation-image text-center mt-10 md:mt-0 animate-float">
+          <img
+            src="images/cards-f-img.png"
+            alt="Player Profile Cards"
+            class="max-w-[80%] md:max-w-full mx-auto h-auto drop-shadow-2xl"
+          />
+        </div>
+      </div>
+
+      <!-- Footer Section -->
+      <footer class="footer text-white pt-14 pb-6 px-6 sm:px-10">
+        <div
+          class="footer-container max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-8 text-center md:text-left"
+        >
+          <!-- Logo -->
+          <div
+            class="footer-logo flex justify-center md:justify-start items-center"
+          >
+            <img
+              src="images/footer-logo.png"
+              alt="SRS Soccer Recruiting Services"
+              class="w-40 md:w-44 lg:w-48 h-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
+            />
+          </div>
+
+          <!-- Contact -->
+          <div class="footer-section">
+            <h3
+              class="text-xs font-bold tracking-wider uppercase mb-5 text-white"
+            >
+              Contact
+            </h3>
+            <p>
+              <a
+                href="tel:+11234567890"
+                class="text-sm text-white/60 hover:text-cyan-400 transition-colors"
+                >+1 123 456 7890</a
+              >
+            </p>
+            <p>
+              <a
+                href="mailto:info@soccer.com"
+                class="text-sm text-white/60 hover:text-cyan-400 transition-colors"
+                >info@soccer.com</a
+              >
+            </p>
+          </div>
+
+          <!-- Legal -->
+          <div class="footer-section">
+            <h3
+              class="text-xs font-bold tracking-wider uppercase mb-5 text-white"
+            >
+              Legal
+            </h3>
+            <p>
+              <a
+                href="#privacy"
+                class="text-sm text-white/60 hover:text-cyan-400 transition-colors"
+                >Privacy Policy</a
+              >
+            </p>
+            <p>
+              <a
+                href="#terms"
+                class="text-sm text-white/60 hover:text-cyan-400 transition-colors"
+                >Terms & Conditions</a
+              >
+            </p>
+          </div>
+
+          <!-- Social -->
+          <div class="footer-section">
+            <h3
+              class="text-xs font-bold tracking-wider uppercase mb-5 text-white"
+            >
+              Follow Us
+            </h3>
+            <div
+              class="social-links flex justify-center md:justify-start gap-4 mt-4"
+            >
+              <a
+                href="https://facebook.com/"
+                target="_blank"
+                class="fa fa-facebook w-9 h-9 inline-flex items-center justify-center bg-white/10 rounded-full text-cyan-400 text-base hover:bg-cyan-400 hover:text-gray-800 hover:-translate-y-[3px] transition-all"
+                title="Facebook"
+              ></a>
+              <a
+                href="https://x.com/"
+                target="_blank"
+                class="fa fa-twitter w-9 h-9 inline-flex items-center justify-center bg-white/10 rounded-full text-cyan-400 text-base hover:bg-cyan-400 hover:text-gray-800 hover:-translate-y-[3px] transition-all"
+                title="Twitter"
+              ></a>
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                class="fa fa-instagram w-9 h-9 inline-flex items-center justify-center bg-white/10 rounded-full text-cyan-400 text-base hover:bg-cyan-400 hover:text-gray-800 hover:-translate-y-[3px] transition-all"
+                title="Instagram"
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom -->
+        <div
+          class="footer-bottom border-t border-white/10 pt-6 text-center text-xs text-white/60"
+        >
+          <p>
+            COPYRIGHT © 2025 - SOCCER RECRUITING SERVICES - ALL RIGHTS RESERVED.
+          </p>
+          <p class="mt-2 text-white/40">
+            Developed by
+            <a
+              href="https://imagin8creations.com/"
+              target="_blank"
+              class="text-[#5bc8dc] font-medium"
+              >IMAGIN8CREATIONS</a
+            >
+          </p>
+        </div>
+      </footer>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

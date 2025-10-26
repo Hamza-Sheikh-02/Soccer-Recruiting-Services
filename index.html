@@ -71,6 +71,50 @@
       .nav-scrolled {
         transform: translateY(-100%);
       }
+
+      /* small custom tweaks to match screenshot details */
+      .pricing-section {
+        background-size: cover;
+        background-position: center;
+      }
+      /* dark overlay for background image */
+      .pricing-overlay {
+        background: rgba(10, 15, 35, 0.6);
+      }
+      /* featured card notch/ribbon */
+      .ribbon {
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #06b6d4; /* cyan-400 */
+        color: white;
+        padding: 6px 18px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        border-radius: 999px;
+        box-shadow: 0 8px 20px rgba(2, 6, 23, 0.25);
+      }
+      /* accent small price chip at bottom of card */
+      .price-chip {
+        background: #06b6d4;
+        color: white;
+        font-weight: 700;
+        padding: 10px 16px;
+        border-radius: 8px;
+        box-shadow: 0 8px 18px rgba(2, 6, 23, 0.12);
+      }
+      /* subtle drop-shadow for the player image */
+      .player-shadow {
+        filter: drop-shadow(0 20px 30px rgba(2, 6, 23, 0.25));
+      }
+      /* small media tweak to prevent overlap on very small screens */
+      @media (max-width: 640px) {
+        .featured-card {
+          transform: none !important;
+        }
+      }
     </style>
   </head>
   <body class="bg-white text-gray-900 overflow-x-hidden">
@@ -218,7 +262,7 @@
           class="hero-content max-w-2xl z-30 text-center sm:text-left lg:text-left"
         >
           <div
-            class="hero-label text-cyan-400 italic font-bold tracking-widest uppercase text-base sm:text-lg mb-4"
+            class="hero-label text-cyan-400 italic font-bold tracking-[6px] uppercase text-base sm:text-lg mb-4"
           >
             Digital Recruiting
           </div>
@@ -913,159 +957,304 @@
       </div>
     </section>
 
-    <!-- Converted pricing section to Tailwind -->
+    <!-- Pricing Section -->
     <section
-      class="pricing-section relative bg-cover bg-center py-32 px-6 md:px-20 lg:px-40 text-white overflow-hidden"
-      style="background-image: url('images/pricing-bg.png')"
-      id="pricing"
+      class="relative min-h-screen py-12 px-4 overflow-hidden flex items-end"
+      style="
+        background-image: url('images/pricing-bg.png');
+        background-size: cover;
+        background-position: center bottom;
+      "
     >
-      <div
-        class="pricing-container relative z-10 max-w-6xl mx-auto text-center"
-      >
+      <div class="relative z-10 max-w-7xl mx-auto w-full pb-8">
         <!-- Header -->
-        <div class="pricing-header mb-20 pb-12">
+        <div class="text-center mb-12">
           <p
-            class="text-sm italic tracking-widest text-cyan-400 uppercase mb-4 font-semibold"
+            class="text-cyan-400 italic font-bold tracking-[6px] uppercase text-base sm:text-lg mb-4"
           >
-            OUR PRICING
+            Our Pricing
           </p>
-          <h2 class="text-4xl md:text-5xl font-bold text-black tracking-wider">
-            OUR PACKAGES & PRICING
+          <h2
+            class="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-wide text-black leading-snug md:leading-tight"
+          >
+            Our Packages & Pricing
           </h2>
         </div>
 
-        <!-- Pricing Wrapper -->
-        <div
-          class="pricing-wrapper flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-0 mt-10 relative"
-        >
-          <!-- Basic Package -->
+        <!-- Pricing Cards Container -->
+        <div class="max-w-6xl mx-auto">
           <div
-            class="pricing-card bg-white text-left text-black rounded-xl shadow-lg hover:-translate-y-3 hover:scale-105 transition-all duration-300 w-full sm:w-96 p-10 md:p-14 z-10 order-1 lg:order-1"
+            class="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr_1.2fr] gap-0 items-end"
           >
-            <div class="text-5xl mb-5 text-blue-900">
-              <img src="images/star.png" alt="Star" class="w-12 h-12" />
-            </div>
-            <h3
-              class="text-2xl font-bold uppercase tracking-wider mb-4 text-blue-900"
-            >
-              BASIC PACKAGE
-            </h3>
-            <div class="border-b-2 border-gray-200 mb-6 pb-6">
-              <span class="block text-5xl font-black text-cyan-400 mb-2"
-                >$750</span
+            <!-- Basic Package - Wider -->
+            <div class="relative z-0">
+              <div
+                class="bg-white text-gray-900 min-h-[540px] p-6 shadow-2xl flex flex-col transform transition-all duration-500 hover:scale-100 hover:-translate-y-2"
               >
-              <span class="text-sm text-gray-600 font-medium"
-                >Per Team (Up to 18 Players)</span
-              >
-            </div>
-            <ul class="list-none p-0 m-0 mb-9 flex-grow">
-              <li class="text-base text-gray-700 mb-3 flex items-center gap-2">
-                <span class="text-cyan-400 font-bold">✓</span> Club provides
-                player headshots.
-              </li>
-              <li class="text-base text-gray-700 mb-3 flex items-center gap-2">
-                <span class="text-cyan-400 font-bold">✓</span> Professional
-                brochure design.
-              </li>
-              <li class="text-base text-gray-700 mb-3 flex items-center gap-2">
-                <span class="text-cyan-400 font-bold">✓</span> Final digital
-                file delivery.
-              </li>
-              <li class="text-base text-gray-700 mb-3 flex items-center gap-2">
-                <span class="text-cyan-400 font-bold">✓</span> Individual player
-                cards.
-              </li>
-              <li class="text-base text-gray-700 mb-3 flex items-center gap-2">
-                <span class="text-cyan-400 font-bold">✓</span> Consistent,
-                professional look across all materials.
-              </li>
-            </ul>
-            <button
-              class="cta-btn bg-cyan-500 text-white font-normal uppercase tracking-wider px-6 py-2 border-none cursor-pointer skew-btn hover:bg-cyan-600 hover:-translate-y-[3px] transition-all"
-            >
-              <span>Get Each Additional Player</span>
-            </button>
-          </div>
+                <!-- Icon -->
+                <div class="flex mb-4">
+                  <img
+                    src="images/star.png"
+                    alt="Star icon"
+                    class="w-12 h-12 opacity-80"
+                  />
+                </div>
 
-          <!-- Featured Package (Center) -->
-          <div
-            class="pricing-card bg-gradient-to-br from-blue-900 to-blue-800 text-white rounded-xl shadow-2xl transform lg:scale-110 hover:scale-115 transition-all duration-300 p-12 md:p-16 relative z-20 order-3 lg:order-2"
-          >
+                <!-- Title -->
+                <h3
+                  class="text-xl md:text-2xl font-bold mb-2 uppercase tracking-wide text-gray-800"
+                >
+                  Basic Package
+                </h3>
+
+                <!-- Price -->
+                <div class="mb-3">
+                  <span
+                    class="text-4xl md:text-5xl font-extrabold text-cyan-500"
+                    >$750</span
+                  >
+                </div>
+
+                <!-- Subtitle -->
+                <p class="text-lg md:text-xl mb-4 text-gray-700">
+                  Per Team (Upto 18 Players)
+                </p>
+
+                <hr />
+
+                <!-- Features -->
+                <div class="space-y-2 mt-5 mb-6 flex-grow text-xs md:text-sm">
+                  <div class="flex items-start gap-2">
+                    <img
+                      src="images/tick.png"
+                      alt="Tick"
+                      class="w-5 h-5 flex-shrink-0"
+                    />
+                    <span class="text-xs leading-tight text-gray-700"
+                      >Club provides player headshots.</span
+                    >
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <img
+                      src="images/tick.png"
+                      alt="Tick"
+                      class="w-5 h-5 flex-shrink-0"
+                    />
+                    <span class="text-xs leading-tight text-gray-700"
+                      >Professional brochure design.</span
+                    >
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <img
+                      src="images/tick.png"
+                      alt="Tick"
+                      class="w-5 h-5 flex-shrink-0"
+                    />
+                    <span class="text-xs leading-tight text-gray-700"
+                      >Final digital file delivery.</span
+                    >
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <img
+                      src="images/tick.png"
+                      alt="Tick"
+                      class="w-5 h-5 flex-shrink-0"
+                    />
+                    <span class="text-xs leading-tight text-gray-700"
+                      >Individual player cards.</span
+                    >
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <img
+                      src="images/tick.png"
+                      alt="Tick"
+                      class="w-5 h-5 flex-shrink-0"
+                    />
+                    <span class="text-xs leading-tight text-gray-700"
+                      >Dynamic QR code creation & management.</span
+                    >
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <img
+                      src="images/tick.png"
+                      alt="Tick"
+                      class="w-5 h-5 flex-shrink-0"
+                    />
+                    <span class="text-xs leading-tight text-gray-700"
+                      >Data collection & organization.</span
+                    >
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <img
+                      src="images/tick.png"
+                      alt="Tick"
+                      class="w-5 h-5 flex-shrink-0"
+                    />
+                    <span class="text-xs leading-tight text-gray-700"
+                      >Consistent, professional look across all materials.</span
+                    >
+                  </div>
+                </div>
+
+                <!-- Button -->
+                <button
+                  class="cta-btn bg-cyan-500 text-white font-normal uppercase tracking-wider px-4 sm:px-6 py-2 border-none cursor-pointer skew-btn hover:bg-cyan-600 hover:-translate-y-[3px] transition-all text-xs whitespace-nowrap self-start"
+                >
+                  <span>$40 For Each Additional Player</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Complete Package - Narrower with overlap -->
             <div
-              class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-cyan-400 text-white px-6 py-2 text-xs font-bold tracking-widest uppercase shadow-lg rounded-full"
+              class="relative z-10 -ml-12 transform transition-all duration-500 hover:scale-100 hover:-translate-y-2"
             >
-              MOST POPULAR
-            </div>
-            <div class="text-5xl mb-5 text-cyan-400">
-              <img src="images/diamond.png" alt="Diamond" class="w-16 h-16" />
-            </div>
-            <h3
-              class="text-2xl font-bold uppercase tracking-wider mb-4 text-white"
-            >
-              COMPLETE PACKAGE
-            </h3>
-            <div class="border-b-2 border-cyan-500/30 mb-6 pb-6">
-              <span class="block text-5xl font-black text-cyan-400 mb-2"
-                >$1,250</span
+              <!-- Most Popular Badge -->
+              <div
+                class="absolute -top-4 left-1/2 -translate-x-1/2 bg-cyan-500 text-white text-[10px] font-bold px-4 py-1.5 uppercase tracking-wider z-20"
               >
-              <span class="text-sm text-white/75 font-medium"
-                >Per Team (Up to 18 Players)</span
-              >
-            </div>
-            <ul class="list-none p-0 m-0 mb-9 flex-grow">
-              <li class="text-base text-white/85 mb-3 flex items-center gap-2">
-                <span class="text-cyan-400 font-bold">✓</span> Professional
-                headshot photography.
-              </li>
-              <li class="text-base text-white/85 mb-3 flex items-center gap-2">
-                <span class="text-cyan-400 font-bold">✓</span> Professional
-                brochure design.
-              </li>
-              <li class="text-base text-white/85 mb-3 flex items-center gap-2">
-                <span class="text-cyan-400 font-bold">✓</span> Final digital
-                file delivery.
-              </li>
-              <li class="text-base text-white/85 mb-3 flex items-center gap-2">
-                <span class="text-cyan-400 font-bold">✓</span> Individual player
-                cards.
-              </li>
-              <li class="text-base text-white/85 mb-3 flex items-center gap-2">
-                <span class="text-cyan-400 font-bold">✓</span> Dynamic QR code
-                management.
-              </li>
-              <li class="text-base text-white/85 mb-3 flex items-center gap-2">
-                <span class="text-cyan-400 font-bold">✓</span> Consistent,
-                professional look across all materials.
-              </li>
-            </ul>
-            <button
-              class="cta-btn bg-cyan-500 text-white font-normal uppercase tracking-wider px-6 py-2 border-none cursor-pointer skew-btn hover:bg-cyan-600 hover:-translate-y-[3px] transition-all"
-            >
-              <span>Get Each Additional Player</span>
-            </button>
-          </div>
+                Most Popular
+              </div>
 
-          <!-- Player Image (Right Side) -->
-          <div
-            class="pricing-image-wrapper flex justify-center lg:justify-end mt-10 lg:mt-0 order-2 lg:order-3"
-          >
-            <img
-              src="images/football-player.png"
-              alt="Professional Soccer Player"
-              class="w-64 sm:w-80 md:w-96 h-auto object-contain drop-shadow-2xl"
-            />
+              <!-- Card -->
+              <div
+                class="bg-slate-900 text-white min-h-[560px] p-6 shadow-2xl flex flex-col"
+              >
+                <!-- Icon -->
+                <div class="flex mb-4">
+                  <img
+                    src="images/diamond.png"
+                    alt="Diamond icon"
+                    class="w-16 h-16"
+                  />
+                </div>
+
+                <!-- Title -->
+                <h3
+                  class="text-2xl md:text-3xl font-bold mb-4 uppercase tracking-wide"
+                >
+                  Complete Package
+                </h3>
+
+                <!-- Price -->
+                <div class="mb-4">
+                  <span
+                    class="text-5xl md:text-6xl font-extrabold text-cyan-500"
+                    >$1,250</span
+                  >
+                </div>
+
+                <!-- Subtitle -->
+                <p class="text-lg md:text-xl mb-6 text-gray-200">
+                  Per Team (Upto 18 Players)
+                </p>
+
+                <hr />
+
+                <!-- Features -->
+                <div class="space-y-3 mt-6 mb-6 flex-grow text-sm md:text-md">
+                  <div class="flex items-start gap-3">
+                    <img
+                      src="images/tick.png"
+                      alt="Tick"
+                      class="w-5 h-5 flex-shrink-0"
+                    />
+                    <span class="text-gray-200 leading-tight"
+                      >Professional headshot photography.</span
+                    >
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <img
+                      src="images/tick.png"
+                      alt="Tick"
+                      class="w-5 h-5 flex-shrink-0"
+                    />
+
+                    <span class="text-gray-200 leading-tight"
+                      >Professional brochure design.</span
+                    >
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <img
+                      src="images/tick.png"
+                      alt="Tick"
+                      class="w-5 h-5 flex-shrink-0"
+                    />
+                    <span class="text-gray-200 leading-tight"
+                      >Final digital file delivery.</span
+                    >
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <img
+                      src="images/tick.png"
+                      alt="Tick"
+                      class="w-5 h-5 flex-shrink-0"
+                    />
+                    <span class="text-gray-200 leading-tight"
+                      >Individual player cards.</span
+                    >
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <img
+                      src="images/tick.png"
+                      alt="Tick"
+                      class="w-5 h-5 flex-shrink-0"
+                    />
+                    <span class="text-gray-200 leading-tight"
+                      >Dynamic QR code creation & management.</span
+                    >
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <img
+                      src="images/tick.png"
+                      alt="Tick"
+                      class="w-5 h-5 flex-shrink-0"
+                    />
+                    <span class="text-gray-200 leading-tight"
+                      >Data collection & organization.</span
+                    >
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <img
+                      src="images/tick.png"
+                      alt="Tick"
+                      class="w-5 h-5 flex-shrink-0 mt-1"
+                    />
+                    <span class="text-gray-200 leading-tight"
+                      >Consistent, professional look across all materials.</span
+                    >
+                  </div>
+                </div>
+
+                <!-- Button -->
+                <button
+                  class="mx-auto px-6 py-3 text-sm md:text-base bg-cyan-500 text-white font-normal uppercase tracking-wider skew-btn hover:bg-cyan-600 hover:-translate-y-[3px] transition-all whitespace-nowrap block"
+                >
+                  $50 For Each Additional Player
+                </button>
+              </div>
+            </div>
+
+            <!-- Player Image -->
+            <div class="hidden lg:flex items-end justify-center pb-0">
+              <img
+                src="images/football-player.png"
+                alt="Soccer player"
+                class="w-full max-w-[420px] h-auto object-contain drop-shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Converted FAQ section to Tailwind -->
+    <!-- FAQ Section -->
     <section class="faq-section py-20 bg-white" id="faq">
       <div class="max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-16">
         <!-- Header -->
         <div class="text-center mb-16">
           <p
-            class="text-sm sm:text-base italic tracking-widest uppercase text-cyan-400 font-bold mb-3"
+            class="text-sm sm:text-base italic tracking-[6px] uppercase text-cyan-400 font-bold mb-3"
           >
             ASKED QUESTIONS BY PEOPLE
           </p>
@@ -1215,7 +1404,7 @@
         <!-- Left Content -->
         <div class="consultation-content text-center md:text-left">
           <h2
-            class="text-blue-900 italic font-bold tracking-widest uppercase text-xs md:text-sm mb-2"
+            class="text-blue-900 italic font-bold tracking-[6px] uppercase text-xs md:text-sm mb-2"
           >
             Elevate Recruiting
           </h2>

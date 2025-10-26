@@ -87,7 +87,7 @@
           <img
             src="images/logo.png"
             alt="Logo"
-            class="h-14 w-32 object-contain"
+            class="h-12 w-48 object-contain"
           />
         </a>
 
@@ -204,11 +204,11 @@
       </div>
     </nav>
 
-    <!-- Converted hero section to Tailwind -->
+    <!-- Hero Section -->
     <section
       id="home"
-      class="hero-wrapper relative bg-cover bg-center bg-no-repeat text-white pt-20 sm:pt-24 lg:pt-28 pb-16 z-10"
-      style="background-image: url('images/hero-bg.jpg')"
+      class="hero-wrapper relative bg-cover bg-center bg-no-repeat text-white pt-20 sm:pt-24 lg:pt-28 pb-16 sm:pb-20 lg:pb-24 -mb-16 sm:-mb-20 md:-mb-24 z-10"
+      style="background-image: url('images/hero-bg.png')"
     >
       <div
         class="hero flex flex-col lg:flex-row items-center justify-between min-h-[80vh] px-4 sm:px-10 lg:px-10 max-w-[92rem] mx-auto gap-8 relative z-20"
@@ -223,14 +223,21 @@
             Digital Recruiting
           </div>
           <h1
-            class="hero-title text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-tight mb-6 tracking-wider"
+            class="hero-title text-4xl sm:text-5xl lg:text-6xl font-black uppercase leading-tight mb-6 tracking-wider text-center sm:text-left"
           >
+            <!-- Text for small screens -->
+            <span class="block md:hidden">
+              Get Your Players Noticed by College Coaches
+            </span>
+
+            <!-- Image for medium+ screens -->
             <img
               src="images/hero-text.png"
               alt="hero-text"
-              class="mx-auto lg:mx-0 w-full max-w-[500px] sm:max-w-[550px] h-auto"
+              class="hidden md:block mx-auto lg:mx-0 w-full max-w-[500px] sm:max-w-[550px] h-auto"
             />
           </h1>
+
           <p
             class="hero-description text-lg sm:text-xl italic text-white/90 leading-relaxed mb-4"
           >
@@ -249,122 +256,123 @@
             Get Your Free 15-Mins Consultation
           </button>
         </div>
-
-        <!-- Optional Right Image -->
-        <!-- <div class="hero-image mt-8 lg:mt-0">
-      <img src="images/player.png" alt="Hero Player" class="w-full max-w-md h-auto object-contain" />
-    </div> -->
       </div>
+    </section>
 
-      <!-- Stats Section -->
+    <!-- Stats Section -->
+    <section
+      class="stats-section relative pt-24 pb-24 z-20 px-4 sm:px-10"
+      style="
+        background-image: url('images/stats-bg.png');
+        background-size: cover;
+        background-position: center;
+      "
+    >
       <div
-        class="stats-section mt-20 sm:mt-28 text-white bg-transparent relative z-20"
+        class="stats-container relative z-20 max-w-[92rem] mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8"
       >
+        <!-- Stat Items -->
         <div
-          class="stats-container max-w-[92rem] mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 px-4 sm:px-10"
+          class="stat-card flex items-start gap-3 sm:gap-5 hover:-translate-y-1.5 transition-transform"
         >
           <div
-            class="stat-card flex items-start gap-3 sm:gap-5 hover:-translate-y-1.5 transition-transform"
+            class="stat-icon w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center flex-shrink-0 rounded-full"
           >
-            <div
-              class="stat-icon w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center flex-shrink-0 rounded-full"
-            >
-              <img
-                src="images/225.png"
-                alt="225"
-                class="max-w-full max-h-full object-contain"
-              />
-            </div>
-            <div class="stat-content">
-              <h3
-                class="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-1"
-              >
-                225+
-              </h3>
-              <p
-                class="text-xs sm:text-sm md:text-base text-gray-800 leading-relaxed"
-              >
-                Academies and <br />Players Trust Us
-              </p>
-            </div>
+            <img
+              src="images/225.png"
+              alt="225"
+              class="max-w-full max-h-full object-contain"
+            />
           </div>
-
-          <div
-            class="stat-card flex items-start gap-3 sm:gap-5 hover:-translate-y-1.5 transition-transform"
-          >
-            <div
-              class="stat-icon w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center flex-shrink-0 rounded-full"
+          <div class="stat-content">
+            <h3
+              class="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-1"
             >
-              <img
-                src="images/10.png"
-                alt="10"
-                class="max-w-full max-h-full object-contain"
-              />
-            </div>
-            <div class="stat-content">
-              <h3
-                class="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-1"
-              >
-                UP TO 10
-              </h3>
-              <p
-                class="text-xs sm:text-sm md:text-base text-gray-800 leading-relaxed"
-              >
-                Business Days <br />Turnaround
-              </p>
-            </div>
+              225+
+            </h3>
+            <p
+              class="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed"
+            >
+              Academies and <br />Players Trust Us
+            </p>
           </div>
+        </div>
 
+        <div
+          class="stat-card flex items-start gap-3 sm:gap-5 hover:-translate-y-1.5 transition-transform"
+        >
           <div
-            class="stat-card flex items-start gap-3 sm:gap-5 hover:-translate-y-1.5 transition-transform"
+            class="stat-icon w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center flex-shrink-0 rounded-full"
           >
-            <div
-              class="stat-icon w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center flex-shrink-0 rounded-full"
-            >
-              <img
-                src="images/100%.png"
-                alt="100%"
-                class="max-w-full max-h-full object-contain"
-              />
-            </div>
-            <div class="stat-content">
-              <h3
-                class="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-1"
-              >
-                100%
-              </h3>
-              <p
-                class="text-xs sm:text-sm md:text-base text-gray-800 leading-relaxed"
-              >
-                Dynamic QR Code <br />Technology
-              </p>
-            </div>
+            <img
+              src="images/10.png"
+              alt="10"
+              class="max-w-full max-h-full object-contain"
+            />
           </div>
-
-          <div
-            class="stat-card flex items-start gap-3 sm:gap-5 hover:-translate-y-1.5 transition-transform"
-          >
-            <div
-              class="stat-icon w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center flex-shrink-0 rounded-full"
+          <div class="stat-content">
+            <h3
+              class="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-1"
             >
-              <img
-                src="images/zero.png"
-                alt="zero"
-                class="max-w-full max-h-full object-contain"
-              />
-            </div>
-            <div class="stat-content">
-              <h3
-                class="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-1"
-              >
-                ZERO
-              </h3>
-              <p
-                class="text-xs sm:text-sm md:text-base text-gray-800 leading-relaxed"
-              >
-                Hassle Choosing <br />Information for the Club
-              </p>
-            </div>
+              UP TO 10
+            </h3>
+            <p
+              class="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed"
+            >
+              Business Days <br />Turnaround
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="stat-card flex items-start gap-3 sm:gap-5 hover:-translate-y-1.5 transition-transform"
+        >
+          <div
+            class="stat-icon w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center flex-shrink-0 rounded-full"
+          >
+            <img
+              src="images/100%.png"
+              alt="100%"
+              class="max-w-full max-h-full object-contain"
+            />
+          </div>
+          <div class="stat-content">
+            <h3
+              class="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-1"
+            >
+              100%
+            </h3>
+            <p
+              class="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed"
+            >
+              Dynamic QR Code <br />Technology
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="stat-card flex items-start gap-3 sm:gap-5 hover:-translate-y-1.5 transition-transform"
+        >
+          <div
+            class="stat-icon w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center flex-shrink-0 rounded-full"
+          >
+            <img
+              src="images/zero.png"
+              alt="zero"
+              class="max-w-full max-h-full object-contain"
+            />
+          </div>
+          <div class="stat-content">
+            <h3
+              class="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-1"
+            >
+              ZERO
+            </h3>
+            <p
+              class="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed"
+            >
+              Hassle Choosing <br />Information for the Club
+            </p>
           </div>
         </div>
       </div>

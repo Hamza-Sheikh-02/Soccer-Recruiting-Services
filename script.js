@@ -80,67 +80,6 @@ mobileLinks.forEach((link) => {
 });
 
 /* -------------------------------------
-   🖼️ Carousel / Slider Functionality
-------------------------------------- */
-let currentSlide = 0;
-const carouselTrack = document.querySelector(".carousel-track");
-const slides = document.querySelectorAll(".carousel-slide");
-const indicators = document.querySelectorAll(".indicator");
-const totalOriginalSlides = indicators.length || 2;
-
-// Returns 2 slides on desktop, 1 on mobile
-function getItemsToShow() {
-  return window.innerWidth > 768 ? 2 : 1;
-}
-
-function updateCarouselPosition() {
-  if (!carouselTrack) return;
-  const itemsToShow = getItemsToShow();
-  const slidePercentage = 100 / itemsToShow;
-  const offset = -currentSlide * slidePercentage;
-  carouselTrack.style.transform = `translateX(${offset}%)`;
-}
-
-function updateIndicators() {
-  indicators.forEach((indicator) => indicator.classList.remove("active"));
-  const indicatorIndex = currentSlide % totalOriginalSlides;
-  if (indicators[indicatorIndex]) {
-    indicators[indicatorIndex].classList.add("active");
-  }
-}
-
-function nextSlide() {
-  currentSlide++;
-  if (currentSlide >= slides.length) currentSlide = 0;
-  updateCarouselPosition();
-  updateIndicators();
-}
-
-function prevSlide() {
-  currentSlide--;
-  if (currentSlide < 0) currentSlide = slides.length - 1;
-  updateCarouselPosition();
-  updateIndicators();
-}
-
-const nextBtn = document.getElementById("nextBtn");
-const prevBtn = document.getElementById("prevBtn");
-
-nextBtn?.addEventListener("click", nextSlide);
-prevBtn?.addEventListener("click", prevSlide);
-
-indicators.forEach((indicator, index) => {
-  indicator.addEventListener("click", () => {
-    currentSlide = index;
-    updateCarouselPosition();
-    updateIndicators();
-  });
-});
-
-window.addEventListener("resize", updateCarouselPosition);
-updateCarouselPosition();
-
-/* -------------------------------------
    ❓ FAQ Accordion Logic
 ------------------------------------- */
 const faqItems = document.querySelectorAll(".faq-item");
@@ -219,4 +158,116 @@ window.addEventListener("resize", () => {
       answer.style.maxHeight = answer.scrollHeight + "px";
     }
   });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const items = document.querySelectorAll(".solution-item");
+  const image = document.getElementById("solutionImage");
+  const subtext = document.getElementById("solutionSubtext");
+
+  // Each image now includes subtext (empty for #4)
+  const slides = [
+    {
+      src: "images/solution1.png",
+      text: "Easy to locate coach's contact information and see the entire team",
+    },
+    {
+      src: "images/solution2.png",
+      text: "Easy for coaches to read and access a player profile",
+    },
+    {
+      src: "images/solution3.png",
+      text: "Links directly to players YouTube channel or personal player profile",
+    },
+    { src: "images/solution4.png", text: "" },
+    {
+      src: "images/solution5.png",
+      text: "We can complete the entire process in as little as 10 business days if your Club is committed!",
+    },
+  ];
+
+  let currentIndex = 0;
+  let autoSlide;
+
+  // Apply active styles + update image & text
+  function setActive(index) {
+    items.forEach((item, i) => {
+      const heading = item.querySelector(".solution-heading");
+      if (i === index) {
+        heading.classList.add("text-cyan-500");
+        item.classList.add("active-solution");
+      } else {
+        heading.classList.remove("text-cyan-500");
+        item.classList.remove("active-solution");
+      }
+    });
+
+    // Smooth fade for image and subtext
+    image.style.opacity = 0;
+    subtext.style.opacity = 0;
+
+    setTimeout(() => {
+      image.src = slides[index].src;
+      if (slides[index].text) {
+        subtext.textContent = slides[index].text;
+        subtext.style.display = "block";
+      } else {
+        subtext.style.display = "none";
+      }
+      image.style.opacity = 1;
+      subtext.style.opacity = 1;
+    }, 300);
+
+    currentIndex = index;
+  }
+
+  // Move to next slide
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    setActive(currentIndex);
+  }
+
+  // Restart auto slide when user interacts
+  function resetAutoSlide() {
+    clearInterval(autoSlide);
+    autoSlide = setInterval(nextSlide, 4000);
+  }
+
+  // Click event for manual selection
+  items.forEach((item, index) => {
+    item.addEventListener("click", () => {
+      setActive(index);
+      resetAutoSlide();
+    });
+  });
+
+  // Initialize first slide
+  setActive(0);
+  autoSlide = setInterval(nextSlide, 4000);
+});
+
+const btn = document.getElementById("button");
+const form = document.getElementById("contact-form");
+const statusText = document.getElementById("form-status");
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  btn.value = "Sending...";
+
+  const serviceID = "service_xub5je4";
+  const templateID = "template_kgj7bpx";
+
+  emailjs.sendForm(serviceID, templateID, this).then(
+    () => {
+      btn.value = "Send Email";
+      statusText.innerText = "✅ Message sent successfully!";
+      form.reset();
+    },
+    (err) => {
+      btn.value = "Send Email";
+      console.error("EmailJS Error:", err);
+      statusText.innerText = "❌ Failed to send message. Please try again.";
+    }
+  );
 });

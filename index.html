@@ -115,6 +115,43 @@
           transform: none !important;
         }
       }
+
+      .active-solution {
+        transform: skewX(-12deg);
+        box-shadow: 0 10px 20px rgba(6, 182, 212, 0.3);
+        transition: all 0.3s ease;
+      }
+      .active-solution span {
+        display: inline-block;
+        transform: skewX(12deg);
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .carousel-track {
+        display: flex;
+        width: calc(200%); /* because we duplicated images */
+      }
+
+      .carousel-img {
+        flex-shrink: 0;
+        width: 250px; /* Adjust size for mobile/desktop as you like */
+        height: auto;
+        object-fit: cover;
+        margin-right: 2rem;
+        border-radius: 1rem;
+      }
+
+      .animate-scroll {
+        animation: scroll 25s linear infinite;
+      }
     </style>
   </head>
   <body class="bg-white text-gray-900 overflow-x-hidden">
@@ -177,11 +214,12 @@
         <!-- Right Side -->
         <div class="nav-right flex items-center gap-3">
           <!-- CTA Button -->
-          <button
+          <a
+            href="#lead-form"
             class="cta-btn hidden md:block bg-cyan-500 text-white font-normal uppercase tracking-wider px-6 py-2 border-none cursor-pointer skew-btn hover:bg-cyan-600 hover:-translate-y-[3px] transition-all whitespace-nowrap"
           >
             <span>Schedule a Consultation</span>
-          </button>
+          </a>
 
           <!-- Mobile Menu Button -->
           <button
@@ -251,7 +289,7 @@
     <!-- Hero Section -->
     <section
       id="home"
-      class="hero-wrapper relative bg-cover bg-center bg-no-repeat text-white pt-20 sm:pt-24 lg:pt-28 pb-16 sm:pb-20 lg:pb-24 -mb-16 sm:-mb-20 md:-mb-24 z-10"
+      class="hero-wrapper relative bg-cover bg-center bg-no-repeat text-white pt-20 sm:pt-24 lg:pt-28 pb-0 sm:pb-20 lg:pb-24 -mb-16 sm:-mb-20 md:-mb-24 z-10"
       style="background-image: url('images/hero-bg.png')"
     >
       <div
@@ -259,20 +297,21 @@
       >
         <!-- Left Content -->
         <div
-          class="hero-content max-w-2xl z-30 text-center sm:text-left lg:text-left"
+          class="hero-content max-w-2xl z-30 text-left mx-auto sm:mx-0 px-2 py-10 sm:px-0 sm:py-0"
         >
           <div
-            class="hero-label text-cyan-400 italic font-bold tracking-[6px] uppercase text-base sm:text-lg mb-4"
+            class="hero-label text-cyan-400 italic font-bold tracking-[4px] sm:tracking-[6px] uppercase text-sm sm:text-lg mb-3 sm:mb-4"
           >
             Digital Recruiting
           </div>
+
           <h1
-            class="hero-title text-4xl sm:text-5xl lg:text-6xl font-black uppercase leading-tight mb-6 tracking-wider text-center sm:text-left"
+            class="hero-title text-3xl sm:text-5xl lg:text-6xl font-black uppercase leading-tight mb-5 sm:mb-6 tracking-wide sm:tracking-wider text-left"
           >
             <!-- Text for small screens -->
-            <span class="block md:hidden"
-              >Get Your Players Noticed by College Coaches</span
-            >
+            <span class="block md:hidden">
+              Get Your Players Noticed by College Coaches
+            </span>
 
             <!-- Image for medium+ screens -->
             <img
@@ -283,29 +322,33 @@
           </h1>
 
           <p
-            class="hero-description text-lg sm:text-xl italic text-white/90 leading-relaxed mb-4"
+            class="hero-description text-base sm:text-xl italic text-white/90 leading-relaxed mb-3 sm:mb-4"
           >
             Professional Digital Recruiting Packages That Make Your Club Stand
             Out.
           </p>
+
           <p
-            class="hero-subtext text-base sm:text-lg text-white/90 leading-relaxed mb-6 sm:mb-8"
+            class="hero-subtext text-sm sm:text-lg text-white/90 leading-relaxed mb-5 sm:mb-8"
           >
             From showcase brochures to dynamic player cards — we make it easy
             for coaches to discover your talent.
           </p>
-          <button
-            class="cta-btn bg-cyan-500 text-white font-normal uppercase tracking-wider px-6 sm:px-8 py-2.5 border-none cursor-pointer skew-btn hover:bg-cyan-600 hover:-translate-y-[3px] transition-all text-sm sm:text-base"
-          >
-            Get Your Free 15-Mins Consultation
-          </button>
+
+          <a href="#lead-form">
+            <button
+              class="cta-btn bg-cyan-500 text-white font-normal uppercase tracking-wider px-6 sm:px-8 py-2 border-none cursor-pointer skew-btn hover:bg-cyan-600 hover:-translate-y-[3px] transition-all text-xs sm:text-base"
+            >
+              Get Your Free 15-Mins Consultation
+            </button>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- Stats Section with Background and Content Inside -->
+    <!-- Stats Section -->
     <section
-      class="stats-section relative pt-32 sm:pt-36 pb-24 z-20 px-4 sm:px-10"
+      class="stats-section relative pt-28 sm:pt-36 pb-24 z-20 px-4 sm:px-10"
     >
       <!-- Stats Background -->
       <div
@@ -313,11 +356,20 @@
         style="background-image: url('images/stats-bg.png')"
       ></div>
 
+      <!-- Section Heading -->
+      <div class="max-w-[92rem] mx-auto text-center mb-12 sm:mb-16">
+        <h2
+          class="text-black text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight leading-snug"
+        >
+          Soccer Clubs <span class="text-cyan-500">Get It</span>
+        </h2>
+      </div>
+
       <!-- Stats Content -->
       <div
-        class="stats-container relative z-20 max-w-[92rem] mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8"
+        class="stats-container relative z-20 max-w-[92rem] mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8"
       >
-        <!-- Stat Items -->
+        <!-- Stat 1 -->
         <div
           class="stat-card flex items-start gap-3 sm:gap-5 hover:-translate-y-1.5 transition-transform"
         >
@@ -344,6 +396,7 @@
           </div>
         </div>
 
+        <!-- Stat 2 -->
         <div
           class="stat-card flex items-start gap-3 sm:gap-5 hover:-translate-y-1.5 transition-transform"
         >
@@ -370,6 +423,7 @@
           </div>
         </div>
 
+        <!-- Stat 3 -->
         <div
           class="stat-card flex items-start gap-3 sm:gap-5 hover:-translate-y-1.5 transition-transform"
         >
@@ -396,6 +450,7 @@
           </div>
         </div>
 
+        <!-- Stat 4 -->
         <div
           class="stat-card flex items-start gap-3 sm:gap-5 hover:-translate-y-1.5 transition-transform"
         >
@@ -424,7 +479,7 @@
       </div>
     </section>
 
-    <!-- Converted problem section to Tailwind -->
+    <!-- Problem Section -->
     <section
       class="problem-section relative py-28 md:py-32 bg-white overflow-hidden"
       id="problem"
@@ -434,7 +489,7 @@
       >
         <!-- Left Image -->
         <div
-          class="problem-image flex-1 flex justify-center md:justify-start w-full"
+          class="problem-image flex-1 flex justify-center md:justify-start w-full md:block hidden"
         >
           <img
             src="images/problem-img.png"
@@ -457,6 +512,14 @@
             The Club Industry
           </h2>
 
+          <div class="block md:hidden mb-8">
+            <img
+              src="images/problem-img.png"
+              alt="Problem Image"
+              class="w-full max-w-sm sm:max-w-md mx-auto rounded-3xl shadow-xl object-cover"
+            />
+          </div>
+
           <ul class="problem-list list-none p-0 m-0 space-y-5 sm:space-y-6">
             <li
               class="flex items-start gap-3 sm:gap-4 text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed"
@@ -464,12 +527,12 @@
               <img
                 src="images/cross.png"
                 alt="cross"
-                class="w-4 h-4 mt-1.5 flex-shrink-0 hover:scale-125 hover:-rotate-3 transition-transform"
+                class="w-4 h-4 mt-1.5 flex-shrink-0 hover:scale-125 hover:-rotate-3 transition-transform text-left"
               />
               Players get lost in the crowd at showcases.
             </li>
             <li
-              class="flex items-start gap-3 sm:gap-4 text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed"
+              class="flex items-start gap-3 sm:gap-4 text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed text-left"
             >
               <img
                 src="images/cross.png"
@@ -479,7 +542,7 @@
               Coaches waste time trying to identify & research players.
             </li>
             <li
-              class="flex items-start gap-3 sm:gap-4 text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed"
+              class="flex items-start gap-3 sm:gap-4 text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed text-left"
             >
               <img
                 src="images/cross.png"
@@ -490,17 +553,17 @@
               quality.
             </li>
             <li
-              class="flex items-start gap-3 sm:gap-4 text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed"
+              class="flex items-start gap-3 sm:gap-4 text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed text-left"
             >
               <img
                 src="images/cross.png"
                 alt="cross"
-                class="w-4 h-4 mt-1.5 flex-shrink-0 hover:scale-125 hover:-rotate-3 transition-transform"
+                class="w-4 h-4 mt-1.5 flex-shrink-0 hover:scale-125 hover:-rotate-3 transition-transform text-left"
               />
               Static player information becomes outdated quickly.
             </li>
             <li
-              class="flex items-start gap-3 sm:gap-4 text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed"
+              class="flex items-start gap-3 sm:gap-4 text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed text-left"
             >
               <img
                 src="images/cross.png"
@@ -515,9 +578,9 @@
       </div>
     </section>
 
-    <!-- Converted solution section to Tailwind -->
+    <!-- Solution Section -->
     <section
-      class="solution-section relative py-28 md:py-32 bg-white overflow-hidden"
+      class="solution-section relative py-24 sm:py-28 md:py-32 bg-white overflow-hidden"
       id="solution"
     >
       <div
@@ -538,125 +601,146 @@
             Recruiting Package
           </h2>
 
-          <ul class="solution-list list-none flex flex-col gap-6">
+          <ul
+            id="solutionList"
+            class="solution-list list-none flex flex-col divide-y divide-gray-200"
+          >
+            <!-- ITEM 1 -->
             <li
-              class="flex items-start gap-4 pb-6 border-b border-gray-300 hover:translate-x-1 transition-transform"
+              data-index="0"
+              class="solution-item flex items-center gap-4 sm:gap-6 py-5 md:py-6 px-4 sm:px-6 md:px-8 cursor-pointer hover:translate-x-1 transition-all"
             >
               <div
-                class="icon-circle w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 flex justify-center items-center"
+                class="icon-circle w-12 sm:w-14 md:w-16 flex-shrink-0 flex flex-col justify-center items-center"
               >
                 <img
                   src="images/s-1.png"
                   alt="icon"
-                  class="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                  class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 object-contain"
                 />
               </div>
-              <div>
+              <div class="flex-1">
                 <h4
-                  class="text-gray-900 text-left text-base sm:text-lg font-bold mb-1"
+                  class="solution-heading text-gray-900 text-left text-base sm:text-md md:text-lg font-bold leading-tight"
                 >
                   Professional Team Showcase Brochure
                 </h4>
-                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                <p
+                  class="text-gray-600 text-left text-xs sm:text-base leading-tight"
+                >
                   Beautiful layout with all player headshots, info, and QR
                   codes.
                 </p>
               </div>
             </li>
 
+            <!-- ITEM 2 -->
             <li
-              class="flex items-start gap-4 pb-6 border-b border-gray-300 hover:translate-x-1 transition-transform"
+              data-index="1"
+              class="solution-item flex items-center gap-4 sm:gap-6 py-5 md:py-6 px-4 sm:px-6 md:px-8 cursor-pointer hover:translate-x-1 transition-all"
             >
               <div
-                class="icon-circle w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 flex justify-center items-center"
+                class="icon-circle w-12 sm:w-14 md:w-16 flex-shrink-0 flex flex-col justify-center items-center"
               >
                 <img
                   src="images/s-2.png"
                   alt="icon"
-                  class="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                  class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 object-contain"
                 />
               </div>
-              <div>
+              <div class="flex-1">
                 <h4
-                  class="text-gray-900 text-left text-base sm:text-lg font-bold mb-1"
+                  class="solution-heading text-gray-900 text-left text-base sm:text-md md:text-lg font-bold leading-tight"
                 >
                   Individual Player Cards
                 </h4>
-                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                <p
+                  class="text-gray-600 text-left text-xs sm:text-base leading-tight"
+                >
                   Perfect for handing out or sharing digitally.
                 </p>
               </div>
             </li>
 
+            <!-- ITEM 3 -->
             <li
-              class="flex items-start gap-4 pb-6 border-b border-gray-300 hover:translate-x-1 transition-transform"
+              data-index="2"
+              class="solution-item flex items-center gap-4 sm:gap-6 py-5 md:py-6 px-4 sm:px-6 md:px-8 cursor-pointer hover:translate-x-1 transition-all"
             >
               <div
-                class="icon-circle w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 flex justify-center items-center"
+                class="icon-circle w-12 sm:w-14 md:w-16 flex-shrink-0 flex flex-col justify-center items-center"
               >
                 <img
                   src="images/s-3.png"
                   alt="icon"
-                  class="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                  class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 object-contain"
                 />
               </div>
-              <div>
+              <div class="flex-1">
                 <h4
-                  class="text-gray-900 text-left text-base sm:text-lg font-bold mb-1"
+                  class="solution-heading text-gray-900 text-left text-base sm:text-md md:text-lg font-bold leading-tight"
                 >
                   Dynamic QR Code Technology
                 </h4>
-                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                <p
+                  class="text-gray-600 text-left text-xs sm:text-base leading-tight"
+                >
                   Links to player's current highlight reel and bio.
                 </p>
               </div>
             </li>
 
+            <!-- ITEM 4 -->
             <li
-              class="flex items-start gap-4 pb-6 border-b border-gray-300 hover:translate-x-1 transition-transform"
+              data-index="3"
+              class="solution-item flex items-center gap-4 sm:gap-6 py-5 md:py-6 px-4 sm:px-6 md:px-8 cursor-pointer hover:translate-x-1 transition-all"
             >
               <div
-                class="icon-circle w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 flex justify-center items-center"
+                class="icon-circle w-12 sm:w-14 md:w-16 flex-shrink-0 flex flex-col justify-center items-center"
               >
                 <img
                   src="images/s-4.png"
                   alt="icon"
-                  class="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                  class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 object-contain"
                 />
               </div>
-              <div>
+              <div class="flex-1">
                 <h4
-                  class="text-gray-900 text-left text-base sm:text-lg font-bold mb-1"
+                  class="solution-heading text-gray-900 text-left text-base sm:text-md md:text-lg font-bold leading-tight"
                 >
                   Streamlined Data Collection
                 </h4>
                 <p
-                  class="text-gray-600 text-left text-sm sm:text-base leading-relaxed"
+                  class="text-gray-600 text-left text-xs sm:text-base leading-tight"
                 >
-                  We handle the logistics with our Google Suite system process.
+                  We handle logistics using our Google Suite system process.
                 </p>
               </div>
             </li>
 
+            <!-- ITEM 5 -->
             <li
-              class="flex items-start gap-4 pb-0 hover:translate-x-1 transition-transform"
+              data-index="4"
+              class="solution-item flex items-center gap-4 sm:gap-6 py-5 md:py-6 px-4 sm:px-6 md:px-8 cursor-pointer hover:translate-x-1 transition-all"
             >
               <div
-                class="icon-circle w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 flex justify-center items-center"
+                class="icon-circle w-12 sm:w-14 md:w-16 flex-shrink-0 flex flex-col justify-center items-center"
               >
                 <img
                   src="images/s-5.png"
                   alt="icon"
-                  class="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                  class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 object-contain"
                 />
               </div>
-              <div>
+              <div class="flex-1">
                 <h4
-                  class="text-gray-900 text-left text-base sm:text-lg font-bold mb-1"
+                  class="solution-heading text-gray-900 text-left text-base sm:text-md md:text-lg font-bold leading-tight"
                 >
                   Quick Turnaround
                 </h4>
-                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                <p
+                  class="text-gray-600 text-left text-xs sm:text-base leading-tight"
+                >
                   As quick as 10 business days from final, approved data.
                 </p>
               </div>
@@ -666,18 +750,25 @@
 
         <!-- Right Image -->
         <div
-          class="solution-image flex-1 flex justify-center md:justify-end w-full float-animation"
+          class="solution-image flex-1 flex flex-col justify-center items-center w-full text-center"
         >
           <img
-            src="images/solution-img.png"
-            alt="Player Cards"
-            class="w-full max-w-sm sm:max-w-md md:max-w-xl lg:max-w-2xl h-auto object-contain"
+            id="solutionImage"
+            src="images/solution1.png"
+            alt="Solution"
+            class="w-full max-w-sm sm:max-w-md md:max-w-xl lg:max-w-2xl h-auto object-contain transition-all duration-500"
           />
+          <p
+            id="solutionSubtext"
+            class="text-gray-600 text-center text-md sm:text-base mt-4 duration-300"
+          >
+            Professional Team Showcase Brochure
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- Converted why clubs section to Tailwind -->
+    <!-- Why Clubs Section -->
     <section
       class="why-clubs-section relative py-20 md:py-28 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white bg-cover bg-center bg-no-repeat"
       id="why-srs"
@@ -875,84 +966,23 @@
           </h2>
         </div>
 
-        <!-- Carousel -->
-        <div
-          class="carousel-wrapper relative flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 mb-12"
-        >
-          <!-- Prev Button -->
-          <button
-            class="carousel-btn carousel-btn-prev w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-cyan-400 border-none text-white text-xl sm:text-2xl cursor-pointer flex items-center justify-center hover:bg-cyan-600 hover:scale-110 hover:shadow-lg active:scale-95 transition-all font-bold order-2 sm:order-1"
-            id="prevBtn"
-          >
-            &lt;
-          </button>
+        <!-- Continuous Carousel -->
+        <div class="overflow-hidden w-full">
+          <div class="carousel-track flex animate-scroll whitespace-nowrap">
+            <!-- Original 5 images -->
+            <img src="images/cd-1.png" alt="Design 1" class="carousel-img" />
+            <img src="images/cd-2.png" alt="Design 2" class="carousel-img" />
+            <img src="images/cd-3.png" alt="Design 3" class="carousel-img" />
+            <img src="images/cd-4.png" alt="Design 4" class="carousel-img" />
+            <img src="images/cd-5.png" alt="Design 5" class="carousel-img" />
 
-          <!-- Carousel Container -->
-          <div
-            class="carousel-container w-full sm:flex-1 max-w-md sm:max-w-4xl overflow-hidden rounded-xl sm:rounded-2xl order-1 sm:order-2"
-          >
-            <div
-              class="carousel-track flex transition-transform duration-500"
-            >
-              <!-- Slide -->
-              <div
-                class="carousel-slide flex-shrink-0 w-full sm:w-1/2 overflow-hidden"
-              >
-                <img
-                  src="images/cd-1.png"
-                  alt="Custom Design 1"
-                  class="w-full h-auto object-cover"
-                />
-              </div>
-              <div
-                class="carousel-slide flex-shrink-0 w-full sm:w-1/2 overflow-hidden"
-              >
-                <img
-                  src="images/cd-2.png"
-                  alt="Custom Design 2"
-                  class="w-full h-auto object-cover"
-                />
-              </div>
-              <div
-                class="carousel-slide flex-shrink-0 w-full sm:w-1/2 overflow-hidden"
-              >
-                <img
-                  src="images/cd-1.png"
-                  alt="Custom Design 1"
-                  class="w-full h-auto object-cover"
-                />
-              </div>
-              <div
-                class="carousel-slide flex-shrink-0 w-full sm:w-1/2 overflow-hidden"
-              >
-                <img
-                  src="images/cd-2.png"
-                  alt="Custom Design 2"
-                  class="w-full h-auto object-cover"
-                />
-              </div>
-            </div>
+            <!-- Duplicate 5 images (for seamless loop) -->
+            <img src="images/cd-1.png" alt="Design 1" class="carousel-img" />
+            <img src="images/cd-2.png" alt="Design 2" class="carousel-img" />
+            <img src="images/cd-3.png" alt="Design 3" class="carousel-img" />
+            <img src="images/cd-4.png" alt="Design 4" class="carousel-img" />
+            <img src="images/cd-5.png" alt="Design 5" class="carousel-img" />
           </div>
-
-          <!-- Next Button -->
-          <button
-            class="carousel-btn carousel-btn-next w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-cyan-400 border-none text-white text-xl sm:text-2xl cursor-pointer flex items-center justify-center hover:bg-cyan-600 hover:scale-110 hover:shadow-lg active:scale-95 transition-all font-bold order-3"
-            id="nextBtn"
-          >
-            &gt;
-          </button>
-        </div>
-
-        <!-- Indicators -->
-        <div class="carousel-indicators flex justify-center gap-2 sm:gap-3">
-          <span
-            class="indicator w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-gray-300 cursor-pointer hover:bg-cyan-300 transition-all active"
-            data-index="0"
-          ></span>
-          <span
-            class="indicator w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-gray-300 cursor-pointer hover:bg-cyan-300 transition-all"
-            data-index="1"
-          ></span>
         </div>
       </div>
     </section>
@@ -1100,11 +1130,9 @@
                 </div>
 
                 <!-- Button -->
-                <button
-                  class="cta-btn bg-cyan-500 text-white font-normal uppercase tracking-wider px-4 sm:px-6 py-2 border-none cursor-pointer skew-btn hover:bg-cyan-600 hover:-translate-y-[3px] transition-all text-xs whitespace-nowrap self-start"
-                >
-                  <span>$40 For Each Additional Player</span>
-                </button>
+                <p class="text-gray-700 text-sm mt-4 text-left italic">
+                  *$40 for each additional player
+                </p>
               </div>
             </div>
 
@@ -1229,12 +1257,9 @@
                   </div>
                 </div>
 
-                <!-- Button -->
-                <button
-                  class="mx-auto px-6 py-3 text-sm md:text-base bg-cyan-500 text-white font-normal uppercase tracking-wider skew-btn hover:bg-cyan-600 hover:-translate-y-[3px] transition-all whitespace-nowrap block"
-                >
-                  $50 For Each Additional Player
-                </button>
+                <p class="text-white text-sm mt-4 text-left italic">
+                  *$50 for each additional player
+                </p>
               </div>
             </div>
 
@@ -1248,6 +1273,91 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Lead Form Section -->
+    <section id="lead-form" class="bg-white text-gray-900 py-16 px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="text-center mb-12">
+          <h2
+            class="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-wide text-black leading-snug md:leading-tight"
+          >
+            Get Started With Your Team
+          </h2>
+          <p class="text-gray-600 mb-10 mt-8 text-sm sm:text-base">
+            Fill out the form below and we&apos;ll get back to you with the next
+            steps.
+          </p>
+        </div>
+
+        <!-- FORM START -->
+        <form id="contact-form" class="grid grid-cols-1 gap-5 text-left">
+          <!-- Name -->
+          <div>
+            <label
+              for="name"
+              class="block text-sm font-medium mb-2 text-gray-700"
+            >
+              Name
+            </label>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              required
+              class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-cyan-500 focus:outline-none transition"
+            />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label
+              for="email"
+              class="block text-sm font-medium mb-2 text-gray-700"
+            >
+              Email
+            </label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+              class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-cyan-500 focus:outline-none transition"
+            />
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label
+              for="message"
+              class="block text-sm font-medium mb-2 text-gray-700"
+            >
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Your Message"
+              rows="5"
+              required
+              class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-cyan-500 focus:outline-none transition resize-none"
+            ></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="w-full flex justify-center">
+            <input
+              type="submit"
+              id="button"
+              value="Send Email"
+              class="cta-btn w-full bg-cyan-500 text-white font-normal uppercase tracking-wider px-6 py-2 border-none cursor-pointer skew-btn hover:bg-cyan-600 hover:-translate-y-[3px] transition-all whitespace-nowrap"
+            />
+          </div>
+        </form>
+        <p id="form-status" class="mt-4 text-gray-600"></p>
       </div>
     </section>
 
@@ -1420,11 +1530,13 @@
             Join the elite academies using professional digital recruiting
             packages to get their players noticed.
           </p>
-          <button
-            class="cta-button bg-blue-900 text-white font-normal uppercase tracking-wider px-5 sm:px-6 py-3 border-none cursor-pointer skew-btn hover:bg-blue-800 hover:-translate-y-[3px] transition-all text-sm sm:text-base"
-          >
-            Get Your Free 15 Mins Consultation
-          </button>
+          <a href="#lead-form">
+            <button
+              class="cta-button bg-blue-900 text-white font-normal uppercase tracking-wider px-5 sm:px-6 py-3 border-none cursor-pointer skew-btn hover:bg-blue-800 hover:-translate-y-[3px] transition-all text-sm sm:text-base"
+            >
+              Get Your Free 15 Mins Consultation
+            </button>
+          </a>
         </div>
 
         <!-- Right Image -->
@@ -1553,6 +1665,11 @@
       </footer>
     </section>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+      emailjs.init("4DrBVP3IEGUoDmfgl");
+    </script>
   </body>
 </html>

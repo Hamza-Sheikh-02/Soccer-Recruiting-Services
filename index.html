@@ -152,6 +152,19 @@
       .animate-scroll {
         animation: scroll 25s linear infinite;
       }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      * {
+        scrollbar-width: none;
+      }
+
+      body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
     </style>
   </head>
   <body class="bg-white text-gray-900 overflow-x-hidden">

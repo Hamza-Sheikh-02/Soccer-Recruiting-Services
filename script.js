@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Each image now includes subtext (empty for #4)
   const slides = [
     {
-      src: "images/solution1.png",
+      src: "images/cd-4.png",
       text: "Easy to locate coach's contact information and see the entire team",
     },
     {

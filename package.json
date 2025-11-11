@@ -1,11 +1,22 @@
 {
+  "name": "Soccer-Recruiting-Services",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
-    "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --minify"
+    "build": "postcss style.css -o dist/style.css",
+    "watch": "postcss style.css -o dist/style.css --watch"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.20.0",
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.17",
+    "autoprefixer": "^10.4.22",
+    "picomatch": "latest",
     "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
     "tailwindcss": "^4.1.17"
   }
 }

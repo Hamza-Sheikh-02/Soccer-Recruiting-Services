@@ -5,32 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Soccer Recruiting Services</title>
     <link rel="icon" type="image/x-icon" href="images/icon.png" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="/dist/output.css" rel="stylesheet" />
     <style>
       @font-face {
         font-family: "Euclid Circular A Regular";
-        src: url("fonts/Euclid\ Circular\ A\ Regular.ttf") format("truetype");
+        src: url("/fonts/EuclidCircularA-Regular.woff2") format("woff2"),
+          url("/fonts/EuclidCircularA-Regular.woff") format("woff");
         font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-      }
-
-      @font-face {
-        font-family: "Euclid Circular A Medium";
-        src: url("fonts/Euclid\ Circular\ A\ Medium.ttf") format("truetype");
-        font-weight: 500;
-        font-style: normal;
-        font-display: swap;
-      }
-
-      @font-face {
-        font-family: "Euclid Circular A Bold";
-        src: url("fonts/Euclid\ Circular\ A\ Bold.ttf") format("truetype");
-        font-weight: 700;
         font-style: normal;
         font-display: swap;
       }
@@ -165,6 +146,13 @@
         scrollbar-width: none;
       }
     </style>
+    <link
+      rel="preload"
+      href="/fonts/EuclidCircularA-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
   </head>
   <body class="bg-white text-gray-900 overflow-x-hidden">
     <!-- Navbar -->
@@ -173,7 +161,7 @@
       class="navbar fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-black/10 transition-transform duration-300"
     >
       <div
-        class="nav-container max-w-[92rem] mx-auto px-6 lg:px-10 py-3 flex items-center justify-between"
+        class="nav-container max-w-368 mx-auto px-6 lg:px-10 py-3 flex items-center justify-between"
       >
         <!-- Logo -->
         <a href="#" class="logo">
@@ -247,7 +235,7 @@
       <!-- Mobile Menu -->
       <div
         id="mobile-menu"
-        class="fixed top-0 right-[-100%] h-screen w-80 bg-white shadow-lg transition-all duration-300 z-[9999] flex flex-col"
+        class="fixed top-0 -right-full h-screen w-80 bg-white shadow-lg transition-all duration-300 z-9999 flex flex-col"
       >
         <div
           class="menu-header flex justify-between items-center p-5 border-b border-black/10"
@@ -305,7 +293,7 @@
       style="background-image: url('images/hero-bg.png')"
     >
       <div
-        class="hero flex flex-col lg:flex-row items-center justify-between min-h-[80vh] px-4 sm:px-10 lg:px-10 max-w-[92rem] mx-auto gap-8 relative z-20"
+        class="hero flex flex-col lg:flex-row items-center justify-between min-h-[80vh] px-4 sm:px-10 lg:px-10 max-w-368 mx-auto gap-8 relative z-20"
       >
         <!-- Left Content -->
         <div
@@ -369,7 +357,7 @@
       ></div>
 
       <!-- Section Heading -->
-      <div class="max-w-[92rem] mx-auto text-center mb-12 sm:mb-16">
+      <div class="max-w-368 mx-auto text-center mb-12 sm:mb-16">
         <h2
           class="text-black text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight leading-snug"
         >
@@ -379,14 +367,14 @@
 
       <!-- Stats Content -->
       <div
-        class="stats-container relative z-20 max-w-[92rem] mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8"
+        class="stats-container relative z-20 max-w-368 mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8"
       >
         <!-- Stat 1 -->
         <div
           class="stat-card flex items-start gap-3 sm:gap-5 hover:-translate-y-1.5 transition-transform"
         >
           <div
-            class="stat-icon w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center flex-shrink-0 rounded-full"
+            class="stat-icon w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center shrink-0 rounded-full"
           >
             <img
               src="images/225.png"
@@ -413,7 +401,7 @@
           class="stat-card flex items-start gap-3 sm:gap-5 hover:-translate-y-1.5 transition-transform"
         >
           <div
-            class="stat-icon w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center flex-shrink-0 rounded-full"
+            class="stat-icon w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center shrink-0 rounded-full"
           >
             <img
               src="images/10.png"
@@ -440,7 +428,7 @@
           class="stat-card flex items-start gap-3 sm:gap-5 hover:-translate-y-1.5 transition-transform"
         >
           <div
-            class="stat-icon w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center flex-shrink-0 rounded-full"
+            class="stat-icon w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center shrink-0 rounded-full"
           >
             <img
               src="images/100-percent.png"
@@ -467,7 +455,7 @@
           class="stat-card flex items-start gap-3 sm:gap-5 hover:-translate-y-1.5 transition-transform"
         >
           <div
-            class="stat-icon w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center flex-shrink-0 rounded-full"
+            class="stat-icon w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center shrink-0 rounded-full"
           >
             <img
               src="images/zero.png"
@@ -1636,21 +1624,65 @@
               <a
                 href="https://facebook.com/"
                 target="_blank"
-                class="fa fa-facebook w-9 h-9 inline-flex items-center justify-center bg-white/10 rounded-full text-cyan-400 text-base hover:bg-cyan-400 hover:text-gray-800 hover:-translate-y-[3px] transition-all"
+                class="w-9 h-9 inline-flex items-center justify-center bg-white/10 rounded-full text-cyan-400 text-base hover:bg-cyan-400 hover:text-gray-800 hover:-translate-y-[3px] transition-all"
                 title="Facebook"
-              ></a>
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-facebook-icon lucide-facebook w-4 h-4"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  />
+                </svg>
+              </a>
               <a
                 href="https://x.com/"
                 target="_blank"
-                class="fa fa-twitter w-9 h-9 inline-flex items-center justify-center bg-white/10 rounded-full text-cyan-400 text-base hover:bg-cyan-400 hover:text-gray-800 hover:-translate-y-[3px] transition-all"
+                class="w-9 h-9 inline-flex items-center justify-center bg-white/10 rounded-full text-cyan-400 text-base hover:bg-cyan-400 hover:text-gray-800 hover:-translate-y-[3px] transition-all"
                 title="Twitter"
-              ></a>
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-twitter-icon lucide-twitter w-4 h-4"
+                >
+                  <path
+                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"
+                  />
+                </svg>
+              </a>
               <a
                 href="https://www.instagram.com/"
                 target="_blank"
-                class="fa fa-instagram w-9 h-9 inline-flex items-center justify-center bg-white/10 rounded-full text-cyan-400 text-base hover:bg-cyan-400 hover:text-gray-800 hover:-translate-y-[3px] transition-all"
+                class="w-9 h-9 inline-flex items-center justify-center bg-white/10 rounded-full text-cyan-400 text-base hover:bg-cyan-400 hover:text-gray-800 hover:-translate-y-[3px] transition-all"
                 title="Instagram"
-              ></a>
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-instagram-icon lucide-instagram w-4 h-4"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>

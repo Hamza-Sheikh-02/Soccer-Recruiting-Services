@@ -32,7 +32,14 @@
       crossorigin
     />
 
-    <link href="output.css" rel="stylesheet" />
+    <link
+      href="output.css"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript><link href="output.css" rel="stylesheet" /></noscript>
+
     <link rel="icon" type="image/x-icon" href="images/icon.png" />
 
     <style>

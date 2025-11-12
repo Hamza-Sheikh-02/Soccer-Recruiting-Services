@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "postcss style.css -o dist/style.css",
-    "watch": "postcss style.css -o dist/style.css --watch"
+    "build": "postcss style.css -o output.css",
+    "watch": "postcss style.css -o output.css --watch"
   },
   "keywords": [],
   "author": "",
